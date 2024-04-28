@@ -1,0 +1,21 @@
+h1 {
+    margin-bottom: 4rem;
+}
+
+ul {
+    padding-left: 0px;
+}
+
+li {
+    list-style-type: none
+}
+
+li h4 {
+    margin-top: 1rem;
+}
+
+li .details {
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.55);
+}

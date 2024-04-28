@@ -62,3 +62,51 @@ section {
     background-color: #202020;
     margin: 0px;
 }
+
+.top-space {
+    margin-top: 128px;
+}
+
+a, a:hover, a:active {
+    color: #a875d7;
+    text-decoration: none;
+}
+
+i .bi, li::marker {
+    color: #a875d7;
+}
+
+pre {
+    background-color: #191919;
+    border: 1px solid var(--bs-border-color);
+    border-radius: 8px;
+    padding: 12px;
+}
+
+pre,
+code,
+code > span {
+    font-family: var(--bs-font-monospace);
+}
+
+code {
+    padding: .2em .4em;
+    margin: 0;
+    font-size: 85%;
+    white-space: break-spaces;
+    background-color: #191919;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+blockquote {
+    padding: 0 1em;
+    color: rgba(255, 255, 255, 0.55);
+    border-left: .25em solid rgba(255, 255, 255, 0.55);
+}
+
+article > h1,
+article > h2 {
+    padding-bottom: .3em;
+    border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+}

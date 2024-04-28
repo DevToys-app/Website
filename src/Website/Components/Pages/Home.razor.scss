@@ -76,15 +76,6 @@ section {
         font-weight: 400;
         font-size: 32px;
     }
-
-    a {
-        color: #a875d7;
-        text-decoration: none;
-    }
-
-    .shadow-text {
-        text-shadow: 0px 0px 24px #000000;
-    }
 }
 
 .hero {
@@ -110,10 +101,6 @@ section {
         animation: hero-bg-scrolling 20s infinite;
         -webkit-animation-timing-function: linear;
         animation-timing-function: linear;
-    }
-
-    .top-space {
-        margin-top: 128px;
     }
 
     .title {

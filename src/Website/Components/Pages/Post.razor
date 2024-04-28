@@ -1,0 +1,45 @@
+﻿@page "/blog/{PostUrl}"
+@using Website.blog
+
+<PageTitle>DevToys - @BlogPost?.Title</PageTitle>
+
+<section>
+    <div class="container">
+        <div class="top-space"></div>
+
+        @if (BlogPost is not null)
+        {
+            <article>
+                <time datetime="@BlogPost.Date.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")"
+                      class="order-first flex items-center text-base text-zinc-400 dark:text-zinc-500">
+                    <span class="pipe"></span>
+                    <span class="date">@BlogPost.Date.ToLongDateString(), by <a href="@("https://github.com/" + BlogPost.GitHubAuthorName)" target="_blank">@BlogPost.GitHubAuthorName</a></span>
+                </time>
+                <h1>@BlogPost.Title</h1>
+                @((MarkupString)PostHtml)
+            </article>
+        }
+        else
+        {
+            <h1>Post not found</h1>
+        }
+    </div>
+</section>
+
+@code {
+    [Parameter]
+    public string PostUrl { get; set; } = string.Empty;
+
+    internal string PostHtml { get; set; } = string.Empty;
+
+    internal BlogPost? BlogPost { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        BlogPost = BlogHelper.GetBlogPost(PostUrl);
+        if (BlogPost != null)
+        {
+            PostHtml = await File.ReadAllTextAsync(BlogPost.HtmlFilePath);
+        }
+    }
+}

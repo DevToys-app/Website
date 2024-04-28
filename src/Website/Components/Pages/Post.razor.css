@@ -1,0 +1,18 @@
+﻿time {
+  align-items: center;
+  display: flex;
+}
+
+time > .pipe {
+  background-color: rgba(255, 255, 255, 0.55);
+  border-radius: 9999px;
+  width: 2px;
+  height: 16px;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+time > .date {
+  margin-left: 0.75rem;
+  color: rgba(255, 255, 255, 0.55);
+}

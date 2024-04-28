@@ -1,0 +1,3 @@
+[submodule "submodule/Documentation"]
+	path = submodule/Documentation
+	url = https://github.com/DevToys-app/Documentation.git

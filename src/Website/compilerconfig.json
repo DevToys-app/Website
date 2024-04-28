@@ -18,5 +18,13 @@
   {
     "outputFile": "Components/Layout/Footer.razor.css",
     "inputFile": "Components/Layout/Footer.razor.scss"
+  },
+  {
+    "outputFile": "Components/Pages/Post.razor.css",
+    "inputFile": "Components/Pages/Post.razor.scss"
+  },
+  {
+    "outputFile": "Components/Pages/Blog.razor.css",
+    "inputFile": "Components/Pages/Blog.razor.scss"
   }
 ]
