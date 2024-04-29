@@ -1,0 +1,545 @@
+﻿@page "/download"
+@using Website.blog
+
+<PageTitle>DevToys - Download</PageTitle>
+
+<section>
+    <div class="container">
+        <div class="top-space"></div>
+        
+        <h3 class="page-title mb-3">DevToys</h3>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <i class="bi bi-microsoft"></i> Windows
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-subtitle">Microsoft Store</h5>
+                        <p class="card-text text-muted mb-1"><i>Seamless installation &amp; update</i></p>
+                        <a href="https://apps.microsoft.com/detail/DevToys/9pgcv4v3bk4w?mode=direct">
+                            <img src="https://get.microsoft.com/images/en-us%20dark.svg" width="115" />
+                        </a>
+
+                        <h5 class="card-subtitle mt-3">Classic Installer</h5>
+                        <p class="card-text text-muted mb-1"><i>Don't have access to the Microsoft Store?</i></p>
+                        <a href="#" class="btn btn-primary">x64</a>
+                        <a href="#" class="btn btn-primary">x86</a>
+                        <a href="#" class="btn btn-primary">ARM64</a>
+
+                        <h5 class="card-subtitle mt-3">Zip</h5>
+                        <p class="card-text text-muted mb-1"><i>A portable approach</i></p>
+                        <a href="#" class="btn btn-primary">x64</a>
+                        <a href="#" class="btn btn-primary">x86</a>
+                        <a href="#" class="btn btn-primary">ARM64</a>
+
+                        <h5 class="card-subtitle mt-3">WinGet & Chocolatey</h5>
+                        <p class="card-text text-muted mb-1"><i>From a command line</i></p>
+                        <p><code>> winget install /* TODO */</code></p>
+                        <p><code>> choco install devtoys</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <i class="bi bi-apple"></i> macOS
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-subtitle">macOS App</h5>
+                        <p class="card-text text-muted mb-1"><i>Traditional application bundle</i></p>
+                        <a href="#" class="btn btn-primary">Intel (x64)</a>
+                        <a href="#" class="btn btn-primary">Apple silicon (ARM64)</a>
+
+                        <h5 class="card-subtitle mt-3">Homebrew</h5>
+                        <p class="card-text text-muted mb-1"><i>From a command line</i></p>
+                        <code>> /* TODO */</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <i class="bi bi-ubuntu"></i> Debian / Ubuntu
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-subtitle">Deb</h5>
+                        <p class="card-text text-muted mb-1"><i>Debian software package file</i></p>
+                        <a href="#" class="btn btn-primary">x64</a>
+                        <a href="#" class="btn btn-primary">ARM64</a>
+
+                        <h5 class="card-subtitle mt-3">Zip</h5>
+                        <p class="card-text text-muted mb-1"><i>A portable approach</i></p>
+                        <a href="#" class="btn btn-primary">x64</a>
+                        <a href="#" class="btn btn-primary">ARM64</a>
+
+                        <h5 class="card-subtitle mt-3">Apt-Get</h5>
+                        <p class="card-text text-muted mb-1"><i>From a command line</i></p>
+                        <code>> sudo apt-get install devtoys (/* TODO */)</code>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <h3 class="page-title mb-3 mt-5">DevToys CLI</h3>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <i class="bi bi-microsoft"></i> Windows
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-subtitle">Zip</h5>
+                        <p class="card-text text-muted mb-1"><i>A portable approach</i></p>
+                        <a href="#" class="btn btn-primary">x64</a>
+                        <a href="#" class="btn btn-primary">x86</a>
+                        <a href="#" class="btn btn-primary">ARM64</a>
+
+                        <h5 class="card-subtitle mt-3">Zip without .NET</h5>
+                        <p class="card-text text-muted mb-1"><i>A lightweight ZIP, requiring .NET 8.0 to be installed</i></p>
+                        <a href="#" class="btn btn-primary">x64</a>
+                        <a href="#" class="btn btn-primary">x86</a>
+                        <a href="#" class="btn btn-primary">ARM64</a>
+
+                        <h5 class="card-subtitle mt-3">WinGet & Chocolatey</h5>
+                        <p class="card-text text-muted mb-1"><i>From a command line</i></p>
+                        <p><code>> winget install /* TODO */</code></p>
+                        <p><code>> choco install /* TODO */</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <i class="bi bi-apple"></i> macOS
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-subtitle">Zip</h5>
+                        <p class="card-text text-muted mb-1"><i>A portable approach</i></p>
+                        <a href="#" class="btn btn-primary">Intel (x64)</a>
+                        <a href="#" class="btn btn-primary">Apple silicon (ARM64)</a>
+
+                        <h5 class="card-subtitle mt-3">Zip without .NET</h5>
+                        <p class="card-text text-muted mb-1"><i>A lightweight ZIP, requiring .NET 8.0 to be installed</i></p>
+                        <a href="#" class="btn btn-primary">Intel (x64)</a>
+                        <a href="#" class="btn btn-primary">Apple silicon (ARM64)</a>
+
+                        <h5 class="card-subtitle mt-3">Homebrew</h5>
+                        <p class="card-text text-muted mb-1"><i>From a command line</i></p>
+                        <code>> /* TODO */</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <i class="bi bi-ubuntu"></i> Debian / Ubuntu
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-subtitle">Zip</h5>
+                        <p class="card-text text-muted mb-1"><i>A portable approach</i></p>
+                        <a href="#" class="btn btn-primary">x64</a>
+                        <a href="#" class="btn btn-primary">ARM64</a>
+
+                        <h5 class="card-subtitle mt-3">Zip without .NET</h5>
+                        <p class="card-text text-muted mb-1"><i>A lightweight ZIP, requiring .NET 8.0 to be installed</i></p>
+                        <a href="#" class="btn btn-primary">x64</a>
+                        <a href="#" class="btn btn-primary">ARM64</a>
+
+                        <h5 class="card-subtitle mt-3">Deb</h5>
+                        <p class="card-text text-muted mb-1"><i>Debian package</i></p>
+                        <a href="#" class="btn btn-primary">x64</a>
+                        <a href="#" class="btn btn-primary">ARM64</a>
+
+                        <h5 class="card-subtitle mt-3">Apt-Get</h5>
+                        <p class="card-text text-muted mb-1"><i>From a command line</i></p>
+                        <code>> sudo apt-get install devtoys (/* TODO */)</code>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        @*<div class="card">
+            <div class="card-header">
+                <ul class="nav nav-pills card-header-pills justify-content-center" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active"
+                                id="pills-windows-tab"
+                                data-bs-toggle="pill"
+                                data-bs-target="#pills-windows"
+                                type="button"
+                                role="tab"
+                                aria-controls="pills-windows"
+                                aria-selected="true">
+                            <i class="bi bi-microsoft"></i> Windows
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link"
+                                id="pills-macos-tab"
+                                data-bs-toggle="pill"
+                                data-bs-target="#pills-macos"
+                                type="button"
+                                role="tab"
+                                aria-controls="pills-macos"
+                                aria-selected="false">
+                            <i class="bi bi-apple"></i> macOS
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link"
+                                id="pills-linux-tab"
+                                data-bs-toggle="pill"
+                                data-bs-target="#pills-linux"
+                                type="button"
+                                role="tab"
+                                aria-controls="pills-linux"
+                                aria-selected="false">
+                            <i class="bi bi-ubuntu"></i> Debian / Ubuntu
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content" id="pills-tabContent">
+
+                <!-- Windows -->
+                <div class="card-body tab-pane fade show active" id="pills-windows" role="tabpanel" aria-labelledby="pills-windows-tab" tabindex="0">
+                    
+                    <h2>DevToys</h2>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <ul class="nav nav-pills card-header-pills justify-content-center" id="pills-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active"
+                                            id="pills-windows-msstore-tab"
+                                            data-bs-toggle="pill"
+                                            data-bs-target="#pills-windows-msstore"
+                                            type="button"
+                                            role="tab"
+                                            aria-controls="pills-windows-msstore"
+                                            aria-selected="true">
+                                        Microsoft Store
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link"
+                                            id="pills-windows-installer-tab"
+                                            data-bs-toggle="pill"
+                                            data-bs-target="#pills-windows-installer"
+                                            type="button"
+                                            role="tab"
+                                            aria-controls="pills-windows-installer"
+                                            aria-selected="false">
+                                        Classic Installer
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link"
+                                            id="pills-windows-portable-tab"
+                                            data-bs-toggle="pill"
+                                            data-bs-target="#pills-windows-portable"
+                                            type="button"
+                                            role="tab"
+                                            aria-controls="pills-windows-portable"
+                                            aria-selected="false">
+                                        Portable
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link"
+                                            id="pills-windows-winget-tab"
+                                            data-bs-toggle="pill"
+                                            data-bs-target="#pills-windows-winget"
+                                            type="button"
+                                            role="tab"
+                                            aria-controls="pills-windows-winget"
+                                            aria-selected="false">
+                                        WinGet
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link"
+                                            id="pills-windows-chocolatey-tab"
+                                            data-bs-toggle="pill"
+                                            data-bs-target="#pills-windows-chocolatey"
+                                            type="button"
+                                            role="tab"
+                                            aria-controls="pills-windows-chocolatey"
+                                            aria-selected="false">
+                                        Chocolatey
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="card-body tab-pane fade show active" id="pills-windows-msstore" role="tabpanel" aria-labelledby="pills-windows-msstore-tab" tabindex="0">
+                                MS Store
+                            </div>
+                            <div class="card-body tab-pane fade" id="pills-windows-installer" role="tabpanel" aria-labelledby="pills-windows-installer-tab" tabindex="0">
+                                <a href="#" class="btn btn-primary">x64</a>
+                                <a href="#" class="btn btn-primary">x86</a>
+                                <a href="#" class="btn btn-primary">ARM64</a>
+                            </div>
+                            <div class="card-body tab-pane fade" id="pills-windows-portable" role="tabpanel" aria-labelledby="pills-windows-portable-tab" tabindex="0">
+                                Portable
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="mt-3">DevToys CLI</h2>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <ul class="nav nav-pills card-header-pills justify-content-center" id="pills-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active"
+                                            id="pills-windows-msstore-tab"
+                                            data-bs-toggle="pill"
+                                            data-bs-target="#pills-windows-msstore"
+                                            type="button"
+                                            role="tab"
+                                            aria-controls="pills-windows-msstore"
+                                            aria-selected="true">
+                                        Microsoft Store
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link"
+                                            id="pills-windows-installer-tab"
+                                            data-bs-toggle="pill"
+                                            data-bs-target="#pills-windows-installer"
+                                            type="button"
+                                            role="tab"
+                                            aria-controls="pills-windows-installer"
+                                            aria-selected="false">
+                                        Classic Installer
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link"
+                                            id="pills-windows-portable-tab"
+                                            data-bs-toggle="pill"
+                                            data-bs-target="#pills-windows-portable"
+                                            type="button"
+                                            role="tab"
+                                            aria-controls="pills-windows-portable"
+                                            aria-selected="false">
+                                        Portable
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link"
+                                            id="pills-windows-winget-tab"
+                                            data-bs-toggle="pill"
+                                            data-bs-target="#pills-windows-winget"
+                                            type="button"
+                                            role="tab"
+                                            aria-controls="pills-windows-winget"
+                                            aria-selected="false">
+                                        WinGet
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link"
+                                            id="pills-windows-chocolatey-tab"
+                                            data-bs-toggle="pill"
+                                            data-bs-target="#pills-windows-chocolatey"
+                                            type="button"
+                                            role="tab"
+                                            aria-controls="pills-windows-chocolatey"
+                                            aria-selected="false">
+                                        Chocolatey
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="card-body tab-pane fade show active" id="pills-windows-msstore" role="tabpanel" aria-labelledby="pills-windows-msstore-tab" tabindex="0">
+                                MS Store
+                            </div>
+                            <div class="card-body tab-pane fade" id="pills-windows-installer" role="tabpanel" aria-labelledby="pills-windows-installer-tab" tabindex="0">
+                                Installer
+                            </div>
+                            <div class="card-body tab-pane fade" id="pills-windows-portable" role="tabpanel" aria-labelledby="pills-windows-portable-tab" tabindex="0">
+                                Portable
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>DevToys</h2>
+                    
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                        <div class="col">
+                            <div class="card h-100">
+                                <h5 class="card-header">Microsoft Store</h5>
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted"><i>Seamless installation &amp; automatic update</i></h6>
+                                    <a href="https://apps.microsoft.com/detail/DevToys/9pgcv4v3bk4w?mode=direct">
+                                        <img src="https://get.microsoft.com/images/en-us%20dark.svg" width="115" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <h5 class="card-header">Classic Installer</h5>
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted"><i>Don't have access to the Microsoft Store?</i></h6>
+                                    <a href="#" class="btn btn-primary">x64</a>
+                                    <a href="#" class="btn btn-primary">x86</a>
+                                    <a href="#" class="btn btn-primary">ARM64</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <h5 class="card-header">Portable</h5>
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted"><i>Prefer a ZIP?</i></h6>
+                                    <a href="#" class="btn btn-primary">x64</a>
+                                    <a href="#" class="btn btn-primary">x86</a>
+                                    <a href="#" class="btn btn-primary">ARM64</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="mt-3">DevToys CLI</h2>
+
+                    <div class="row row-cols-1 row-cols-md-2 g-4">
+                        <div class="col">
+                            <div class="card h-100">
+                                <h5 class="card-header">Portable</h5>
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted"><i>A ZIP with a ready-to-run app</i></h6>
+                                    <a href="#" class="btn btn-primary">x64</a>
+                                    <a href="#" class="btn btn-primary">x86</a>
+                                    <a href="#" class="btn btn-primary">ARM64</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <h5 class="card-header">.NET 8.0 dependent</h5>
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted"><i>A lightweight ZIP, requiring .NET to be installed</i></h6>
+                                    <a href="#" class="btn btn-primary">x64</a>
+                                    <a href="#" class="btn btn-primary">x86</a>
+                                    <a href="#" class="btn btn-primary">ARM64</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- macOS -->
+                <div class="card-body tab-pane fade" id="pills-macos" role="tabpanel" aria-labelledby="pills-macos-tab" tabindex="0">
+                    <h2>DevToys</h2>
+
+                    <div class="row row-cols-1 row-cols-md-1 g-4">
+                        <div class="col">
+                            <div class="card h-100">
+                                <h5 class="card-header">macOS app</h5>
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted"><i>Traditional application bundle</i></h6>
+                                    <a href="#" class="btn btn-primary">Intel (x64)</a>
+                                    <a href="#" class="btn btn-primary">Apple Silicon (ARM64)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="mt-3">DevToys CLI</h2>
+
+                    <div class="row row-cols-1 row-cols-md-2 g-4">
+                        <div class="col">
+                            <div class="card h-100">
+                                <h5 class="card-header">Portable</h5>
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted"><i>A ZIP with a ready-to-run app</i></h6>
+                                    <a href="#" class="btn btn-primary">Intel (x64)</a>
+                                    <a href="#" class="btn btn-primary">Apple Silicon (ARM64)</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <h5 class="card-header">.NET 8.0 dependent</h5>
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted"><i>A lightweight ZIP, requiring .NET to be installed</i></h6>
+                                    <a href="#" class="btn btn-primary">Intel (x64)</a>
+                                    <a href="#" class="btn btn-primary">Apple Silicon (ARM64)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Linux -->
+                <div class="card-body tab-pane fade" id="pills-linux" role="tabpanel" aria-labelledby="pills-linux-tab" tabindex="0">
+                    <h2>DevToys</h2>
+
+                    <div class="row row-cols-1 row-cols-md-2 g-4">
+                        <div class="col">
+                            <div class="card h-100">
+                                <h5 class="card-header">Apt-get</h5>
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted"><i>Automatic installation</i></h6>
+                                    <code>> sudo apt-get install devtoys (/* TODO */)</code>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card h-100">
+                                <h5 class="card-header">Debian package</h5>
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted"><i>DEB file to install</i></h6>
+                                    <a href="#" class="btn btn-primary">x64</a>
+                                    <a href="#" class="btn btn-primary">ARM</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="mt-3">DevToys CLI</h2>
+
+                    <div class="row row-cols-1 row-cols-md-2 g-4">
+                        <div class="col">
+                            <div class="card h-100">
+                                <h5 class="card-header">Apt-get</h5>
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted"><i>Automatic installation</i></h6>
+                                    <code>> sudo apt-get install devtoys (/* TODO */)</code>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card h-100">
+                                <h5 class="card-header">Debian package</h5>
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted"><i>DEB file to install</i></h6>
+                                    <a href="#" class="btn btn-primary">x64</a>
+                                    <a href="#" class="btn btn-primary">ARM</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> *@
+
+        <h1 class="page-title mb-1 mt-5">Need an older version?</h1>
+        <a class="btn btn-primary mb-5" href="https://github.com/DevToys-app/DevToys/releases">Check the releases on GitHub</a>
+    </div>
+</section>

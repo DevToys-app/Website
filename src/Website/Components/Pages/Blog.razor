@@ -6,24 +6,28 @@
 <section>
     <div class="container">
         <div class="top-space"></div>
-        <h1>News, developer story and more...</h1>
+        <h1 class="page-title">News, developer story and more...</h1>
         <ul>
             @foreach (BlogPost post in BlogHelper.BlogPosts)
             {
-                <li class="border-top">
-                    <div class="row">
-                        <div class="col-8">
-                            <h4><a href="@($"/blog/{post.Url}")">@post.Title</a></h4>
-                            <p>@post.Description</p>
-                        </div>
-                        <div class="col details">
-                            <span>@post.Category</span>
-                        </div>
-                        <div class="col details">
-                            <time datetime="@post.Date.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")"
-                                  class="order-first flex items-center text-base text-zinc-400 dark:text-zinc-500">
-                                <span>@post.Date.ToLongDateString()</span>
-                            </time>
+                <li class="mb-3">
+                    <div class="card">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 col-lg-9 ps-4">
+                                    <h4><a href="@($"/blog/{post.Url}")">@post.Title</a></h4>
+                                    <p>@post.Description</p>
+                                </div>
+                                <div class="col-12 col-lg-3 ps-4 details">
+                                    <p>@post.Category</p>
+                                    <p>
+                                        <time datetime="@post.Date.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")"
+                                              class="order-first flex items-center text-base text-zinc-400 dark:text-zinc-500">
+                                            <span>@post.Date.ToLongDateString()</span>
+                                        </time>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </li>

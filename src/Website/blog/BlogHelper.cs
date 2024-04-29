@@ -38,7 +38,7 @@ namespace Website.blog
                     // Deserialize the YAML front matter.
                     BlogPost blogPost = deserializer.Deserialize<BlogPost>(parts[0]);
                     blogPost.HtmlFilePath = filePath;
-                    blogPost.Url = Path.GetFileName(markdownFilePath);
+                    blogPost.Url = Path.GetFileNameWithoutExtension(markdownFilePath);
 
                     // Write the HTML to a file.
                     File.WriteAllText(filePath, html);

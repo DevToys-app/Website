@@ -26,5 +26,9 @@
   {
     "outputFile": "Components/Pages/Blog.razor.css",
     "inputFile": "Components/Pages/Blog.razor.scss"
+  },
+  {
+    "outputFile": "Components/Pages/Download.razor.css",
+    "inputFile": "Components/Pages/Download.razor.scss"
   }
 ]

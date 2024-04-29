@@ -61,10 +61,24 @@ body {
 section {
     background-color: #202020;
     margin: 0px;
+
+    .page-title {
+        margin-bottom: 4rem;
+        color: unset;
+        background: linear-gradient(to right bottom, white 30%, rgba(255, 255, 255, 0.3)) text;
+        -webkit-box-decoration-break: clone;
+        -webkit-text-fill-color: transparent;
+        text-decoration: inherit;
+        text-wrap: balance;
+    }
 }
 
 .top-space {
     margin-top: 128px;
+}
+
+.card {
+    background-color: rgba(42, 42, 42, 0.8);
 }
 
 a, a:hover, a:active {

@@ -9,6 +9,7 @@
 	<ItemGroup>
 		<PackageReference Include="BuildWebCompiler" Version="1.12.405" />
 		<PackageReference Include="Markdig" Version="0.37.0" />
+		<PackageReference Include="Octokit" Version="11.0.1" />
 		<PackageReference Include="YamlDotNet" Version="15.1.2" />
 	</ItemGroup>
 

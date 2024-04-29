@@ -1,7 +1,3 @@
-h1 {
-    margin-bottom: 4rem;
-}
-
 ul {
     padding-left: 0px;
 }
@@ -15,7 +11,11 @@ li h4 {
 }
 
 li .details {
-    display: flex;
-    align-items: center;
+    min-width: 200px;
+    align-content: center;
     color: rgba(255, 255, 255, 0.55);
+
+    p {
+        margin-bottom: 0px;
+    }
 }

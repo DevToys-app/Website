@@ -1,1 +1,1 @@
-﻿h1{margin-bottom:4rem;}ul{padding-left:0;}li{list-style-type:none;}li h4{margin-top:1rem;}li .details{display:flex;align-items:center;color:rgba(255,255,255,.55);}
+﻿ul{padding-left:0;}li{list-style-type:none;}li h4{margin-top:1rem;}li .details{min-width:200px;align-content:center;color:rgba(255,255,255,.55);}li .details p{margin-bottom:0;}
