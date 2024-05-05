@@ -73,8 +73,17 @@ section .page-title {
   margin-top: 128px;
 }
 
-.card {
+.card,
+.accordion-item {
   background-color: rgba(42, 42, 42, 0.8);
+}
+
+.accordion-button {
+  background-color: transparent;
+}
+.accordion-button:not(.collapsed) {
+  background-color: rgba(var(--bs-body-color-rgb), 0.03);
+  color: #a875d7;
 }
 
 a, a:hover, a:active {

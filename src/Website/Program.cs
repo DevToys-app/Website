@@ -13,6 +13,9 @@ namespace Website
             // Add services to the container.
             builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 
+            // Register IHttpContextAccessor as a service
+            builder.Services.AddHttpContextAccessor();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
