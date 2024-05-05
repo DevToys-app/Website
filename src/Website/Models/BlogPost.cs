@@ -1,4 +1,4 @@
-﻿namespace Website.blog
+﻿namespace Website.Models
 {
     internal record BlogPost
     {

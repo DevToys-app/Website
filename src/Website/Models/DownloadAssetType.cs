@@ -1,6 +1,6 @@
-﻿namespace Website.GitHub
+﻿namespace Website.Models
 {
-    internal enum AssetType
+    internal enum DownloadAssetType
     {
         Windows_GUI_Installer_X86,
         Windows_GUI_Installer_X64,

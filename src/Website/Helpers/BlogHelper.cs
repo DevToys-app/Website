@@ -1,9 +1,10 @@
 ﻿using Markdig;
 using System.Diagnostics;
+using Website.Models;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
-namespace Website.blog
+namespace Website.Helpers
 {
     internal static class BlogHelper
     {

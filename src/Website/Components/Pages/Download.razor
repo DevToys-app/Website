@@ -1,6 +1,8 @@
 ﻿@page "/download"
-@using Website.GitHub
-@using Website.blog
+@attribute [StreamRendering(true)]
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Website.Helpers
+@using Website.Models
 @using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor httpContextAccessor
 
@@ -48,17 +50,42 @@
                                     <img src="https://get.microsoft.com/images/en-us%20dark.svg" width="115" />
                                 </a>
 
-                                <h5 class="card-subtitle mt-3">Classic Installer</h5>
-                                <p class="card-text text-muted mb-1"><i>Don't have access to the Microsoft Store?</i></p>
-                                <a href="@AssetsUrls[AssetType.Windows_GUI_Installer_X64]" class="btn btn-primary">x64</a>
-                                <a href="@AssetsUrls[AssetType.Windows_GUI_Installer_X86]" class="btn btn-primary">x86</a>
-                                <a href="@AssetsUrls[AssetType.Windows_GUI_Installer_ARM64]" class="btn btn-primary">ARM64</a>
+                                @if (AssetsUrls is not null)
+                                {
+                                    <h5 class="card-subtitle mt-3">Classic Installer</h5>
+                                    <p class="card-text text-muted mb-1"><i>Don't have access to the Microsoft Store?</i></p>
+                                    <a href="@AssetsUrls[DownloadAssetType.Windows_GUI_Installer_X64]" class="btn btn-primary">x64</a>
+                                    <a href="@AssetsUrls[DownloadAssetType.Windows_GUI_Installer_X86]" class="btn btn-primary">x86</a>
+                                    <a href="@AssetsUrls[DownloadAssetType.Windows_GUI_Installer_ARM64]" class="btn btn-primary">ARM64</a>
 
-                                <h5 class="card-subtitle mt-3">Zip</h5>
-                                <p class="card-text text-muted mb-1"><i>A portable approach</i></p>
-                                <a href="@AssetsUrls[AssetType.Windows_GUI_Zip_X64]" class="btn btn-primary">x64</a>
-                                <a href="@AssetsUrls[AssetType.Windows_GUI_Zip_X86]" class="btn btn-primary">x86</a>
-                                <a href="@AssetsUrls[AssetType.Windows_GUI_Zip_ARM64]" class="btn btn-primary">ARM64</a>
+                                    <h5 class="card-subtitle mt-3">Zip</h5>
+                                    <p class="card-text text-muted mb-1"><i>A portable approach</i></p>
+                                    <a href="@AssetsUrls[DownloadAssetType.Windows_GUI_Zip_X64]" class="btn btn-primary">x64</a>
+                                    <a href="@AssetsUrls[DownloadAssetType.Windows_GUI_Zip_X86]" class="btn btn-primary">x86</a>
+                                    <a href="@AssetsUrls[DownloadAssetType.Windows_GUI_Zip_ARM64]" class="btn btn-primary">ARM64</a>
+                                }
+                                else
+                                {
+                                    <h5 class="card-subtitle mt-3 placeholder-wave">
+                                        <span class="placeholder col-3"></span>
+                                    </h5>
+                                    <p class="card-text text-muted mb-1 placeholder-wave">
+                                        <span class="placeholder col-6"></span>
+                                    </p>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+
+                                    <h5 class="card-subtitle mt-3 placeholder-wave">
+                                        <span class="placeholder col-1"></span>
+                                    </h5>
+                                    <p class="card-text text-muted mb-1 placeholder-wave">
+                                        <span class="placeholder col-3"></span>
+                                    </p>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+                                }
 
                                 <h5 class="card-subtitle mt-3">WinGet & Chocolatey</h5>
                                 <p class="card-text text-muted mb-1"><i>From a command line</i></p>
@@ -73,17 +100,42 @@
                                 DevToys CLI
                             </div>
                             <div class="card-body">
-                                <h5 class="card-subtitle">Zip</h5>
-                                <p class="card-text text-muted mb-1"><i>A portable approach</i></p>
-                                <a href="@AssetsUrls[AssetType.Windows_CLI_Zip_X64]" class="btn btn-primary">x64</a>
-                                <a href="@AssetsUrls[AssetType.Windows_CLI_Zip_X86]" class="btn btn-primary">x86</a>
-                                <a href="@AssetsUrls[AssetType.Windows_CLI_Zip_ARM64]" class="btn btn-primary">ARM64</a>
+                                @if (AssetsUrls is not null)
+                                {
+                                    <h5 class="card-subtitle">Zip</h5>
+                                    <p class="card-text text-muted mb-1"><i>A portable approach</i></p>
+                                    <a href="@AssetsUrls[DownloadAssetType.Windows_CLI_Zip_X64]" class="btn btn-primary">x64</a>
+                                    <a href="@AssetsUrls[DownloadAssetType.Windows_CLI_Zip_X86]" class="btn btn-primary">x86</a>
+                                    <a href="@AssetsUrls[DownloadAssetType.Windows_CLI_Zip_ARM64]" class="btn btn-primary">ARM64</a>
 
-                                <h5 class="card-subtitle mt-3">Zip without .NET</h5>
-                                <p class="card-text text-muted mb-1"><i>A lightweight ZIP, requiring .NET 8.0 to be installed</i></p>
-                                <a href="@AssetsUrls[AssetType.Windows_CLI_Zip_Lightweight_X64]" class="btn btn-primary">x64</a>
-                                <a href="@AssetsUrls[AssetType.Windows_CLI_Zip_Lightweight_X86]" class="btn btn-primary">x86</a>
-                                <a href="@AssetsUrls[AssetType.Windows_CLI_Zip_Lightweight_ARM64]" class="btn btn-primary">ARM64</a>
+                                    <h5 class="card-subtitle mt-3">Zip without .NET</h5>
+                                    <p class="card-text text-muted mb-1"><i>A lightweight ZIP, requiring .NET 8.0 to be installed</i></p>
+                                    <a href="@AssetsUrls[DownloadAssetType.Windows_CLI_Zip_Lightweight_X64]" class="btn btn-primary">x64</a>
+                                    <a href="@AssetsUrls[DownloadAssetType.Windows_CLI_Zip_Lightweight_X86]" class="btn btn-primary">x86</a>
+                                    <a href="@AssetsUrls[DownloadAssetType.Windows_CLI_Zip_Lightweight_ARM64]" class="btn btn-primary">ARM64</a>
+                                }
+                                else
+                                {
+                                    <h5 class="card-subtitle placeholder-wave">
+                                        <span class="placeholder col-1"></span>
+                                    </h5>
+                                    <p class="card-text text-muted mb-1 placeholder-wave">
+                                        <span class="placeholder col-3"></span>
+                                    </p>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+
+                                    <h5 class="card-subtitle mt-3 placeholder-wave">
+                                        <span class="placeholder col-3"></span>
+                                    </h5>
+                                    <p class="card-text text-muted mb-1 placeholder-wave">
+                                        <span class="placeholder col-6"></span>
+                                    </p>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+                                }
 
                                 <h5 class="card-subtitle mt-3">WinGet & Chocolatey</h5>
                                 <p class="card-text text-muted mb-1"><i>From a command line</i></p>
@@ -104,10 +156,24 @@
                                 DevToys
                             </div>
                             <div class="card-body">
-                                <h5 class="card-subtitle">macOS App</h5>
-                                <p class="card-text text-muted mb-1"><i>Traditional application bundle</i></p>
-                                <a href="@AssetsUrls[AssetType.MacOS_GUI_AppBundle_X64]" class="btn btn-primary">Intel (x64)</a>
-                                <a href="@AssetsUrls[AssetType.MacOS_GUI_AppBundle_ARM64]" class="btn btn-primary">Apple silicon (ARM64)</a>
+                                @if (AssetsUrls is not null)
+                                {
+                                    <h5 class="card-subtitle">macOS App</h5>
+                                    <p class="card-text text-muted mb-1"><i>Traditional application bundle</i></p>
+                                    <a href="@AssetsUrls[DownloadAssetType.MacOS_GUI_AppBundle_X64]" class="btn btn-primary">Intel (x64)</a>
+                                    <a href="@AssetsUrls[DownloadAssetType.MacOS_GUI_AppBundle_ARM64]" class="btn btn-primary">Apple silicon (ARM64)</a>
+                                }
+                                else
+                                {
+                                    <h5 class="card-subtitle placeholder-wave">
+                                        <span class="placeholder col-2"></span>
+                                    </h5>
+                                    <p class="card-text text-muted mb-1 placeholder-wave">
+                                        <span class="placeholder col-4"></span>
+                                    </p>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+                                }
 
                                 <h5 class="card-subtitle mt-3">Homebrew</h5>
                                 <p class="card-text text-muted mb-1"><i>From a command line</i></p>
@@ -121,15 +187,38 @@
                                 DevToys CLI
                             </div>
                             <div class="card-body">
-                                <h5 class="card-subtitle">Zip</h5>
-                                <p class="card-text text-muted mb-1"><i>A portable approach</i></p>
-                                <a href="@AssetsUrls[AssetType.MacOS_CLI_Zip_X64]" class="btn btn-primary">Intel (x64)</a>
-                                <a href="@AssetsUrls[AssetType.MacOS_CLI_Zip_ARM64]" class="btn btn-primary">Apple silicon (ARM64)</a>
+                                @if (AssetsUrls is not null)
+                                {
+                                    <h5 class="card-subtitle">Zip</h5>
+                                    <p class="card-text text-muted mb-1"><i>A portable approach</i></p>
+                                    <a href="@AssetsUrls[DownloadAssetType.MacOS_CLI_Zip_X64]" class="btn btn-primary">Intel (x64)</a>
+                                    <a href="@AssetsUrls[DownloadAssetType.MacOS_CLI_Zip_ARM64]" class="btn btn-primary">Apple silicon (ARM64)</a>
 
-                                <h5 class="card-subtitle mt-3">Zip without .NET</h5>
-                                <p class="card-text text-muted mb-1"><i>A lightweight ZIP, requiring .NET 8.0 to be installed</i></p>
-                                <a href="@AssetsUrls[AssetType.MacOS_CLI_Zip_Lightweight_X64]" class="btn btn-primary">Intel (x64)</a>
-                                <a href="@AssetsUrls[AssetType.MacOS_CLI_Zip_Lightweight_ARM64]" class="btn btn-primary">Apple silicon (ARM64)</a>
+                                    <h5 class="card-subtitle mt-3">Zip without .NET</h5>
+                                    <p class="card-text text-muted mb-1"><i>A lightweight ZIP, requiring .NET 8.0 to be installed</i></p>
+                                    <a href="@AssetsUrls[DownloadAssetType.MacOS_CLI_Zip_Lightweight_X64]" class="btn btn-primary">Intel (x64)</a>
+                                    <a href="@AssetsUrls[DownloadAssetType.MacOS_CLI_Zip_Lightweight_ARM64]" class="btn btn-primary">Apple silicon (ARM64)</a>
+                                }
+                                else
+                                {
+                                    <h5 class="card-subtitle placeholder-wave">
+                                        <span class="placeholder col-1"></span>
+                                    </h5>
+                                    <p class="card-text text-muted mb-1 placeholder-wave">
+                                        <span class="placeholder col-3"></span>
+                                    </p>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+
+                                    <h5 class="card-subtitle mt-3 placeholder-wave">
+                                        <span class="placeholder col-3"></span>
+                                    </h5>
+                                    <p class="card-text text-muted mb-1 placeholder-wave">
+                                        <span class="placeholder col-6"></span>
+                                    </p>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+                                }
 
                                 <h5 class="card-subtitle mt-3">Homebrew</h5>
                                 <p class="card-text text-muted mb-1"><i>From a command line</i></p>
@@ -153,15 +242,38 @@
                                 <p class="card-text text-muted mb-1"><i>From a command line</i></p>
                                 <code>> sudo apt install devtoys (/* TODO */)</code>
 
-                                <h5 class="card-subtitle mt-3">Deb</h5>
-                                <p class="card-text text-muted mb-1"><i>Debian software package file</i></p>
-                                <a href="@AssetsUrls[AssetType.Debian_GUI_Deb_X64]" class="btn btn-primary">x64</a>
-                                <a href="@AssetsUrls[AssetType.Debian_GUI_Deb_ARM64]" class="btn btn-primary">ARM64</a>
+                                @if (AssetsUrls is not null)
+                                {
+                                    <h5 class="card-subtitle mt-3">Deb</h5>
+                                    <p class="card-text text-muted mb-1"><i>Debian software package file</i></p>
+                                    <a href="@AssetsUrls[DownloadAssetType.Debian_GUI_Deb_X64]" class="btn btn-primary">x64</a>
+                                    <a href="@AssetsUrls[DownloadAssetType.Debian_GUI_Deb_ARM64]" class="btn btn-primary">ARM64</a>
 
-                                <h5 class="card-subtitle mt-3">Zip</h5>
-                                <p class="card-text text-muted mb-1"><i>A portable approach</i></p>
-                                <a href="@AssetsUrls[AssetType.Debian_GUI_Zip_X64]" class="btn btn-primary">x64</a>
-                                <a href="@AssetsUrls[AssetType.Debian_GUI_Zip_ARM64]" class="btn btn-primary">ARM64</a>
+                                    <h5 class="card-subtitle mt-3">Zip</h5>
+                                    <p class="card-text text-muted mb-1"><i>A portable approach</i></p>
+                                    <a href="@AssetsUrls[DownloadAssetType.Debian_GUI_Zip_X64]" class="btn btn-primary">x64</a>
+                                    <a href="@AssetsUrls[DownloadAssetType.Debian_GUI_Zip_ARM64]" class="btn btn-primary">ARM64</a>
+                                }
+                                else
+                                {
+                                    <h5 class="card-subtitle mt-3 placeholder-wave">
+                                        <span class="placeholder col-1"></span>
+                                    </h5>
+                                    <p class="card-text text-muted mb-1 placeholder-wave">
+                                        <span class="placeholder col-6"></span>
+                                    </p>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+
+                                    <h5 class="card-subtitle mt-3 placeholder-wave">
+                                        <span class="placeholder col-1"></span>
+                                    </h5>
+                                    <p class="card-text text-muted mb-1 placeholder-wave">
+                                        <span class="placeholder col-3"></span>
+                                    </p>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+                                }
                             </div>
                         </div>
                     </div>
@@ -175,20 +287,52 @@
                                 <p class="card-text text-muted mb-1"><i>From a command line</i></p>
                                 <code>> sudo apt install devtoys (/* TODO */)</code>
 
-                                <h5 class="card-subtitle mt-3">Deb</h5>
-                                <p class="card-text text-muted mb-1"><i>Debian package</i></p>
-                                <a href="@AssetsUrls[AssetType.Debian_CLI_Deb_X64]" class="btn btn-primary">x64</a>
-                                <a href="@AssetsUrls[AssetType.Debian_CLI_Deb_ARM64]" class="btn btn-primary">ARM64</a>
+                                @if (AssetsUrls is not null)
+                                {
+                                    <h5 class="card-subtitle mt-3">Deb</h5>
+                                    <p class="card-text text-muted mb-1"><i>Debian software package file</i></p>
+                                    <a href="@AssetsUrls[DownloadAssetType.Debian_CLI_Deb_X64]" class="btn btn-primary">x64</a>
+                                    <a href="@AssetsUrls[DownloadAssetType.Debian_CLI_Deb_ARM64]" class="btn btn-primary">ARM64</a>
 
-                                <h5 class="card-subtitle mt-3">Zip</h5>
-                                <p class="card-text text-muted mb-1"><i>A portable approach</i></p>
-                                <a href="@AssetsUrls[AssetType.Debian_CLI_Zip_X64]" class="btn btn-primary">x64</a>
-                                <a href="@AssetsUrls[AssetType.Debian_CLI_Zip_ARM64]" class="btn btn-primary">ARM64</a>
+                                    <h5 class="card-subtitle mt-3">Zip</h5>
+                                    <p class="card-text text-muted mb-1"><i>A portable approach</i></p>
+                                    <a href="@AssetsUrls[DownloadAssetType.Debian_CLI_Zip_X64]" class="btn btn-primary">x64</a>
+                                    <a href="@AssetsUrls[DownloadAssetType.Debian_CLI_Zip_ARM64]" class="btn btn-primary">ARM64</a>
 
-                                <h5 class="card-subtitle mt-3">Zip without .NET</h5>
-                                <p class="card-text text-muted mb-1"><i>A lightweight ZIP, requiring .NET 8.0 to be installed</i></p>
-                                <a href="@AssetsUrls[AssetType.Debian_CLI_Zip_Lightweight_X64]" class="btn btn-primary">x64</a>
-                                <a href="@AssetsUrls[AssetType.Debian_CLI_Zip_Lightweight_ARM64]" class="btn btn-primary">ARM64</a>
+                                    <h5 class="card-subtitle mt-3">Zip without .NET</h5>
+                                    <p class="card-text text-muted mb-1"><i>A lightweight ZIP, requiring .NET 8.0 to be installed</i></p>
+                                    <a href="@AssetsUrls[DownloadAssetType.Debian_CLI_Zip_Lightweight_X64]" class="btn btn-primary">x64</a>
+                                    <a href="@AssetsUrls[DownloadAssetType.Debian_CLI_Zip_Lightweight_ARM64]" class="btn btn-primary">ARM64</a>
+                                }
+                                else
+                                {
+                                    <h5 class="card-subtitle mt-3 placeholder-wave">
+                                        <span class="placeholder col-1"></span>
+                                    </h5>
+                                    <p class="card-text text-muted mb-1 placeholder-wave">
+                                        <span class="placeholder col-4"></span>
+                                    </p>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+
+                                    <h5 class="card-subtitle mt-3 placeholder-wave">
+                                        <span class="placeholder col-1"></span>
+                                    </h5>
+                                    <p class="card-text text-muted mb-1 placeholder-wave">
+                                        <span class="placeholder col-3"></span>
+                                    </p>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+
+                                    <h5 class="card-subtitle mt-3 placeholder-wave">
+                                        <span class="placeholder col-3"></span>
+                                    </h5>
+                                    <p class="card-text text-muted mb-1 placeholder-wave">
+                                        <span class="placeholder col-6"></span>
+                                    </p>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+                                    <a class="btn btn-primary disabled placeholder-wave col-1" aria-disabled="true">&emsp;</a>
+                                }
                             </div>
                         </div>
                     </div>
@@ -209,12 +353,10 @@
 
     internal bool IsMacOS { get; set; }
 
-    internal IReadOnlyDictionary<AssetType, string> AssetsUrls { get; set; } = new Dictionary<AssetType, string>();
+    internal IReadOnlyDictionary<DownloadAssetType, string>? AssetsUrls { get; set; } = null;
 
     protected override async Task OnInitializedAsync()
     {
-        await base.OnInitializedAsync();
-
         if (httpContextAccessor.HttpContext is not null)
         {
             var userAgent = httpContextAccessor.HttpContext.Request.Headers["User-Agent"].ToString();
@@ -233,5 +375,7 @@
         }
 
         AssetsUrls = await GitHubHelper.GetLatestAssetsLinksAsync();
+
+        await base.OnInitializedAsync();
     }
 }
