@@ -26,6 +26,24 @@
     <script src="aos/aos.js"></script>
     <script>
         AOS.init();
+        let scrollRef = 0;
+        window.addEventListener('scroll', function () {
+            // increase value up to 10, then refresh AOS
+            if (scrollRef <= 10) {
+                scrollRef++;
+            } else {
+                AOS.refresh();
+            }
+        });
+
+        window.addEventListener('resize', function () {
+            // increase value up to 10, then refresh AOS
+            if (scrollRef <= 10) {
+                scrollRef++;
+            } else {
+                AOS.refresh();
+            }
+        });
     </script>
 </body>
 

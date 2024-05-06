@@ -3,14 +3,11 @@
 .btn {
   color: #fff;
   background-color: #a875d7;
-  border-color: #a875d7;
-}
+  border-color: #a875d7; }
 
 .nav-link {
-  color: rgba(255, 255, 255, 0.55);
-}
+  color: rgba(255, 255, 255, 0.55); }
 
 .nav-link:focus,
 .nav-link:hover {
-  color: rgba(255, 255, 255, 0.75);
-}
+  color: rgba(255, 255, 255, 0.75); }

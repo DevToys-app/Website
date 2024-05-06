@@ -75,41 +75,42 @@ namespace Website.Helpers
 
                 var assets = await githubClient.Repository.Release.GetAllAssets(GitHubOrganization, GitHubRepositoryName, latestRelease.Id);
 
-                var assetsURLs = new Dictionary<DownloadAssetType, string>();
+                var assetsURLs = new Dictionary<DownloadAssetType, string>
+                {
+                    [DownloadAssetType.Windows_GUI_Installer_X86] = assets.Single(a => a.Name == FileName_Windows_GUI_Installer_X86).BrowserDownloadUrl,
+                    [DownloadAssetType.Windows_GUI_Installer_X64] = assets.Single(a => a.Name == FileName_Windows_GUI_Installer_X64).BrowserDownloadUrl,
+                    [DownloadAssetType.Windows_GUI_Installer_ARM64] = assets.Single(a => a.Name == FileName_Windows_GUI_Installer_ARM64).BrowserDownloadUrl,
+                    [DownloadAssetType.Windows_GUI_Zip_X86] = assets.Single(a => a.Name == FileName_Windows_GUI_Zip_X86).BrowserDownloadUrl,
+                    [DownloadAssetType.Windows_GUI_Zip_X64] = assets.Single(a => a.Name == FileName_Windows_GUI_Zip_X64).BrowserDownloadUrl,
+                    [DownloadAssetType.Windows_GUI_Zip_ARM64] = assets.Single(a => a.Name == FileName_Windows_GUI_Zip_ARM64).BrowserDownloadUrl,
 
-                assetsURLs[DownloadAssetType.Windows_GUI_Installer_X86] = assets.Single(a => a.Name == FileName_Windows_GUI_Installer_X86).BrowserDownloadUrl;
-                assetsURLs[DownloadAssetType.Windows_GUI_Installer_X64] = assets.Single(a => a.Name == FileName_Windows_GUI_Installer_X64).BrowserDownloadUrl;
-                assetsURLs[DownloadAssetType.Windows_GUI_Installer_ARM64] = assets.Single(a => a.Name == FileName_Windows_GUI_Installer_ARM64).BrowserDownloadUrl;
-                assetsURLs[DownloadAssetType.Windows_GUI_Zip_X86] = assets.Single(a => a.Name == FileName_Windows_GUI_Zip_X86).BrowserDownloadUrl;
-                assetsURLs[DownloadAssetType.Windows_GUI_Zip_X64] = assets.Single(a => a.Name == FileName_Windows_GUI_Zip_X64).BrowserDownloadUrl;
-                assetsURLs[DownloadAssetType.Windows_GUI_Zip_ARM64] = assets.Single(a => a.Name == FileName_Windows_GUI_Zip_ARM64).BrowserDownloadUrl;
+                    [DownloadAssetType.Windows_CLI_Zip_X86] = assets.Single(a => a.Name == Filename_Windows_CLI_Zip_X86).BrowserDownloadUrl,
+                    [DownloadAssetType.Windows_CLI_Zip_X64] = assets.Single(a => a.Name == FileName_Windows_CLI_Zip_X64).BrowserDownloadUrl,
+                    [DownloadAssetType.Windows_CLI_Zip_ARM64] = assets.Single(a => a.Name == FileName_Windows_CLI_Zip_ARM64).BrowserDownloadUrl,
+                    [DownloadAssetType.Windows_CLI_Zip_Lightweight_X86] = assets.Single(a => a.Name == FileName_Windows_CLI_Zip_Lightweight_X86).BrowserDownloadUrl,
+                    [DownloadAssetType.Windows_CLI_Zip_Lightweight_X64] = assets.Single(a => a.Name == FileName_Windows_CLI_Zip_Lightweight_X64).BrowserDownloadUrl,
+                    [DownloadAssetType.Windows_CLI_Zip_Lightweight_ARM64] = assets.Single(a => a.Name == FileName_Windows_CLI_Zip_Lightweight_ARM64).BrowserDownloadUrl,
 
-                assetsURLs[DownloadAssetType.Windows_CLI_Zip_X86] = assets.Single(a => a.Name == Filename_Windows_CLI_Zip_X86).BrowserDownloadUrl;
-                assetsURLs[DownloadAssetType.Windows_CLI_Zip_X64] = assets.Single(a => a.Name == FileName_Windows_CLI_Zip_X64).BrowserDownloadUrl;
-                assetsURLs[DownloadAssetType.Windows_CLI_Zip_ARM64] = assets.Single(a => a.Name == FileName_Windows_CLI_Zip_ARM64).BrowserDownloadUrl;
-                assetsURLs[DownloadAssetType.Windows_CLI_Zip_Lightweight_X86] = assets.Single(a => a.Name == FileName_Windows_CLI_Zip_Lightweight_X86).BrowserDownloadUrl;
-                assetsURLs[DownloadAssetType.Windows_CLI_Zip_Lightweight_X64] = assets.Single(a => a.Name == FileName_Windows_CLI_Zip_Lightweight_X64).BrowserDownloadUrl;
-                assetsURLs[DownloadAssetType.Windows_CLI_Zip_Lightweight_ARM64] = assets.Single(a => a.Name == FileName_Windows_CLI_Zip_Lightweight_ARM64).BrowserDownloadUrl;
+                    [DownloadAssetType.MacOS_GUI_AppBundle_X64] = assets.Single(a => a.Name == FileName_MacOS_GUI_AppBundle_X64).BrowserDownloadUrl,
+                    [DownloadAssetType.MacOS_GUI_AppBundle_ARM64] = assets.Single(a => a.Name == FileName_MacOS_GUI_AppBundle_ARM64).BrowserDownloadUrl,
 
-                assetsURLs[DownloadAssetType.MacOS_GUI_AppBundle_X64] = assets.Single(a => a.Name == FileName_MacOS_GUI_AppBundle_X64).BrowserDownloadUrl;
-                assetsURLs[DownloadAssetType.MacOS_GUI_AppBundle_ARM64] = assets.Single(a => a.Name == FileName_MacOS_GUI_AppBundle_ARM64).BrowserDownloadUrl;
+                    [DownloadAssetType.MacOS_CLI_Zip_X64] = assets.Single(a => a.Name == FileName_MacOS_CLI_Zip_X64).BrowserDownloadUrl,
+                    [DownloadAssetType.MacOS_CLI_Zip_ARM64] = assets.Single(a => a.Name == FileName_MacOS_CLI_Zip_ARM64).BrowserDownloadUrl,
+                    [DownloadAssetType.MacOS_CLI_Zip_Lightweight_X64] = assets.Single(a => a.Name == FileName_MacOS_CLI_Zip_Lightweight_X64).BrowserDownloadUrl,
+                    [DownloadAssetType.MacOS_CLI_Zip_Lightweight_ARM64] = assets.Single(a => a.Name == FileName_MacOS_CLI_Zip_Lightweight_ARM64).BrowserDownloadUrl,
 
-                assetsURLs[DownloadAssetType.MacOS_CLI_Zip_X64] = assets.Single(a => a.Name == FileName_MacOS_CLI_Zip_X64).BrowserDownloadUrl;
-                assetsURLs[DownloadAssetType.MacOS_CLI_Zip_ARM64] = assets.Single(a => a.Name == FileName_MacOS_CLI_Zip_ARM64).BrowserDownloadUrl;
-                assetsURLs[DownloadAssetType.MacOS_CLI_Zip_Lightweight_X64] = assets.Single(a => a.Name == FileName_MacOS_CLI_Zip_Lightweight_X64).BrowserDownloadUrl;
-                assetsURLs[DownloadAssetType.MacOS_CLI_Zip_Lightweight_ARM64] = assets.Single(a => a.Name == FileName_MacOS_CLI_Zip_Lightweight_ARM64).BrowserDownloadUrl;
+                    [DownloadAssetType.Debian_GUI_Deb_X64] = assets.Single(a => a.Name == FileName_Debian_GUI_Deb_X64).BrowserDownloadUrl,
+                    [DownloadAssetType.Debian_GUI_Deb_ARM64] = assets.Single(a => a.Name == FileName_Debian_GUI_Deb_ARM64).BrowserDownloadUrl,
+                    [DownloadAssetType.Debian_GUI_Zip_X64] = assets.Single(a => a.Name == FileName_Debian_GUI_Zip_X64).BrowserDownloadUrl,
+                    [DownloadAssetType.Debian_GUI_Zip_ARM64] = assets.Single(a => a.Name == FileName_Debian_GUI_Zip_ARM64).BrowserDownloadUrl,
 
-                assetsURLs[DownloadAssetType.Debian_GUI_Deb_X64] = assets.Single(a => a.Name == FileName_Debian_GUI_Deb_X64).BrowserDownloadUrl;
-                assetsURLs[DownloadAssetType.Debian_GUI_Deb_ARM64] = assets.Single(a => a.Name == FileName_Debian_GUI_Deb_ARM64).BrowserDownloadUrl;
-                assetsURLs[DownloadAssetType.Debian_GUI_Zip_X64] = assets.Single(a => a.Name == FileName_Debian_GUI_Zip_X64).BrowserDownloadUrl;
-                assetsURLs[DownloadAssetType.Debian_GUI_Zip_ARM64] = assets.Single(a => a.Name == FileName_Debian_GUI_Zip_ARM64).BrowserDownloadUrl;
-
-                assetsURLs[DownloadAssetType.Debian_CLI_Deb_X64] = assets.Single(a => a.Name == FileName_Debian_CLI_Deb_X64).BrowserDownloadUrl;
-                assetsURLs[DownloadAssetType.Debian_CLI_Deb_ARM64] = assets.Single(a => a.Name == FileName_Debian_CLI_Deb_ARM64).BrowserDownloadUrl;
-                assetsURLs[DownloadAssetType.Debian_CLI_Zip_X64] = assets.Single(a => a.Name == FileName_Debian_CLI_Zip_X64).BrowserDownloadUrl;
-                assetsURLs[DownloadAssetType.Debian_CLI_Zip_ARM64] = assets.Single(a => a.Name == FileName_Debian_CLI_Zip_ARM64).BrowserDownloadUrl;
-                assetsURLs[DownloadAssetType.Debian_CLI_Zip_Lightweight_X64] = assets.Single(a => a.Name == FileName_Debian_CLI_Zip_Lightweight_X64).BrowserDownloadUrl;
-                assetsURLs[DownloadAssetType.Debian_CLI_Zip_Lightweight_ARM64] = assets.Single(a => a.Name == FileName_Debian_CLI_Zip_Lightweight_ARM64).BrowserDownloadUrl;
+                    [DownloadAssetType.Debian_CLI_Deb_X64] = assets.Single(a => a.Name == FileName_Debian_CLI_Deb_X64).BrowserDownloadUrl,
+                    [DownloadAssetType.Debian_CLI_Deb_ARM64] = assets.Single(a => a.Name == FileName_Debian_CLI_Deb_ARM64).BrowserDownloadUrl,
+                    [DownloadAssetType.Debian_CLI_Zip_X64] = assets.Single(a => a.Name == FileName_Debian_CLI_Zip_X64).BrowserDownloadUrl,
+                    [DownloadAssetType.Debian_CLI_Zip_ARM64] = assets.Single(a => a.Name == FileName_Debian_CLI_Zip_ARM64).BrowserDownloadUrl,
+                    [DownloadAssetType.Debian_CLI_Zip_Lightweight_X64] = assets.Single(a => a.Name == FileName_Debian_CLI_Zip_Lightweight_X64).BrowserDownloadUrl,
+                    [DownloadAssetType.Debian_CLI_Zip_Lightweight_ARM64] = assets.Single(a => a.Name == FileName_Debian_CLI_Zip_Lightweight_ARM64).BrowserDownloadUrl
+                };
 
                 return assetsURLs;
             }
@@ -130,22 +131,27 @@ namespace Website.Helpers
                 { DownloadAssetType.Windows_GUI_Zip_X86, "#" },
                 { DownloadAssetType.Windows_GUI_Zip_X64, "#" },
                 { DownloadAssetType.Windows_GUI_Zip_ARM64, "#" },
+
                 { DownloadAssetType.Windows_CLI_Zip_X86, "#" },
                 { DownloadAssetType.Windows_CLI_Zip_X64, "#" },
                 { DownloadAssetType.Windows_CLI_Zip_ARM64, "#" },
                 { DownloadAssetType.Windows_CLI_Zip_Lightweight_X86, "#" },
                 { DownloadAssetType.Windows_CLI_Zip_Lightweight_X64, "#" },
                 { DownloadAssetType.Windows_CLI_Zip_Lightweight_ARM64, "#" },
+
                 { DownloadAssetType.MacOS_GUI_AppBundle_X64, "#" },
                 { DownloadAssetType.MacOS_GUI_AppBundle_ARM64, "#" },
+
                 { DownloadAssetType.MacOS_CLI_Zip_X64, "#" },
                 { DownloadAssetType.MacOS_CLI_Zip_ARM64, "#" },
                 { DownloadAssetType.MacOS_CLI_Zip_Lightweight_X64, "#" },
                 { DownloadAssetType.MacOS_CLI_Zip_Lightweight_ARM64, "#" },
+
                 { DownloadAssetType.Debian_GUI_Deb_X64, "#" },
                 { DownloadAssetType.Debian_GUI_Deb_ARM64, "#" },
                 { DownloadAssetType.Debian_GUI_Zip_X64, "#" },
                 { DownloadAssetType.Debian_GUI_Zip_ARM64, "#" },
+
                 { DownloadAssetType.Debian_CLI_Deb_X64, "#" },
                 { DownloadAssetType.Debian_CLI_Deb_ARM64, "#" },
                 { DownloadAssetType.Debian_CLI_Zip_X64, "#" },

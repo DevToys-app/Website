@@ -82,16 +82,14 @@ section {
     background-color: rgba(42, 42, 42, 0.8);
 }
 
-
 .accordion-button {
     background-color: transparent;
 
     &:not(.collapsed) {
-        background-color: rgba(var(--bs-body-color-rgb), 0.03);
+        background-color: rgba(33, 37, 41, 0.03);
         color: #a875d7;
     }
 }
-
 
 a, a:hover, a:active {
     color: #a875d7;

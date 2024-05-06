@@ -1,27 +1,19 @@
 ﻿ul {
-  padding-left: 0px;
-}
-ul li {
-  list-style-type: none;
-}
-ul li a, ul li a * {
-  color: rgba(255, 255, 255, 0.55) !important;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-}
-ul li a:hover, ul li a:hover *, ul li a *:hover, ul li a *:hover * {
-  color: rgba(255, 255, 255, 0.75) !important;
-}
-ul li a:hover h4, ul li a:hover * h4, ul li a *:hover h4, ul li a *:hover * h4 {
-  color: rgb(255, 255, 255) !important;
-}
-ul li a h4, ul li a * h4 {
-  color: rgb(255, 255, 255) !important;
-  margin-top: 1rem;
-}
-ul li a .details, ul li a * .details {
-  min-width: 200px;
-  align-content: center;
-}
-ul li a .details p, ul li a * .details p {
-  margin-bottom: 0px;
-}
+  padding-left: 0px; }
+  ul li {
+    list-style-type: none; }
+    ul li a, ul li a * {
+      color: rgba(255, 255, 255, 0.55) !important;
+      transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out; }
+      ul li a:hover, ul li a:hover *, ul li a *:hover, ul li a *:hover * {
+        color: rgba(255, 255, 255, 0.75) !important; }
+        ul li a:hover h4, ul li a:hover * h4, ul li a *:hover h4, ul li a *:hover * h4 {
+          color: white !important; }
+      ul li a h4, ul li a * h4 {
+        color: white !important;
+        margin-top: 1rem; }
+      ul li a .details, ul li a * .details {
+        min-width: 200px;
+        align-content: center; }
+        ul li a .details p, ul li a * .details p {
+          margin-bottom: 0px; }

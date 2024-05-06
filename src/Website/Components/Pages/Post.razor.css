@@ -1,7 +1,6 @@
 ﻿time {
   align-items: center;
-  display: flex;
-}
+  display: flex; }
 
 time > .pipe {
   background-color: rgba(255, 255, 255, 0.55);
@@ -9,10 +8,8 @@ time > .pipe {
   width: 2px;
   height: 16px;
   font-size: 16px;
-  line-height: 28px;
-}
+  line-height: 28px; }
 
 time > .date {
-  margin-left: 0.75rem;
-  color: rgba(255, 255, 255, 0.55);
-}
+  margin-left: .75rem;
+  color: rgba(255, 255, 255, 0.55); }

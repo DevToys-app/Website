@@ -1,5 +1,4 @@
 ﻿.navbar {
   background-color: rgba(42, 42, 42, 0.8);
   -webkit-backdrop-filter: blur(20px) saturate(150%);
-  backdrop-filter: blur(20px) saturate(150%);
-}
+  backdrop-filter: blur(20px) saturate(150%); }
