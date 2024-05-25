@@ -46,7 +46,6 @@
     --font-family-text: "Segoe UI Variable Text", "Seoge UI Variable Static Text", var(--font-family-fallback);
     --font-family-small: "Segoe UI Variable Small", "Seoge UI Variable Static Small", var(--font-family-fallback);
     --font-family-display: "Segoe UI Variable Display", "Seoge UI Variable Static Display", var(--font-family-fallback);
-
     font-family: var(--font-family-text);
 }
 
@@ -129,8 +128,16 @@ blockquote {
     border-left: .25em solid rgba(255, 255, 255, 0.55);
 }
 
-article > h1,
-article > h2 {
-    padding-bottom: .3em;
-    border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+article {
+    h1, h2 {
+        padding-bottom: .3em;
+        border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
 }

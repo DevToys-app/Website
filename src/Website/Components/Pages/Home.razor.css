@@ -3,252 +3,211 @@
 --------------------------------------------------------------*/
 @-webkit-keyframes hero-bg-scrolling {
   0% {
-    background-position: 0px 196px;
-  }
-}
+    background-position: 0px 196px; } }
+
 @keyframes hero-bg-scrolling {
   0% {
-    background-position: 0px 196px;
-  }
-}
+    background-position: 0px 196px; } }
+
 @keyframes hero-title-shade {
   to {
-    background-position: 100% 0;
-  }
-}
+    background-position: 100% 0; } }
+
 @property --hero-download-button-angle {
   inherits: true;
   initial-value: 0deg;
-  syntax: "<angle>";
-}
+  syntax: '<angle>'; }
+
 @keyframes hero-download-button-spin {
   to {
-    --hero-download-button-angle: 360deg;
-  }
-}
+    --hero-download-button-angle: 360deg; } }
+
 section.transparent {
-  background-color: unset;
-}
+  background-color: unset; }
+
 section .screenshot {
   -webkit-user-drag: none;
   backdrop-filter: blur(60px) saturate(150%);
-  background-color: hsla(0deg, 0%, 13%, 0.53);
+  background-color: #212121;
   border: 0px;
-  border-radius: 10.6666666667px;
+  border-radius: calc(16px/1.5);
   box-shadow: 0px 32px 64px rgba(0, 0, 0, 0.37), 0px 2px 21px rgba(0, 0, 0, 0.37);
-  user-select: none;
-}
+  user-select: none; }
+
 section ul {
   list-style: none;
-  padding: 0;
-}
-section ul li {
-  padding-bottom: 10px;
-}
-section ul li i.bi {
-  font-size: 24px;
-}
+  padding: 0; }
+  section ul li {
+    padding-bottom: 10px; }
+    section ul li i.bi {
+      font-size: 24px; }
+
 section i {
   font-size: 16px;
   padding-right: 2px;
-  line-height: 0;
-}
-section i.bi {
-  color: #a875d7;
-}
+  line-height: 0; }
+  section i.bi {
+    color: #a875d7; }
+
 section h3 {
   font-weight: 400;
-  font-size: 32px;
-}
+  font-size: 32px; }
 
 .hero {
   position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: "";
-  position: absolute;
-  width: 2000%;
-  height: 2000%;
-  top: -1000%;
-  left: -1000%;
-  z-index: -1;
-  background: url("images/hero-tile.png") repeat 0 0;
-  background-color: rgba(91, 42, 134, 0.95);
-  overflow: hidden;
-  transform: rotateX(15deg) rotateZ(-15deg) skewX(15deg);
-  transform-style: preserve-3d;
-  -webkit-animation: hero-bg-scrolling 20s infinite;
-  animation: hero-bg-scrolling 20s infinite;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-}
-.hero .title {
-  vertical-align: top;
-  color: unset;
-  background: linear-gradient(to right bottom, rgb(255, 255, 255) 30%, rgba(255, 255, 255, 0.3)) text;
-  -webkit-box-decoration-break: clone;
-  -webkit-text-fill-color: transparent;
-  text-align: center;
-  text-decoration: inherit;
-  text-wrap: balance;
-}
-.hero .title h1 {
-  max-width: 75%;
-  margin-bottom: 8px;
-  font-family: var(--font-family-display);
-  font-size: 36px;
-}
-.hero .title h4 {
-  max-width: 50%;
-  text-wrap: pretty;
-  font-size: 16px;
-}
-@media (min-width: 576px) {
-  .hero .title h1 {
-    font-size: 40px;
-  }
-}
-@media (min-width: 768px) {
-  .hero .title h1 {
-    font-size: 48px;
-  }
-  .hero .title h4 {
-    font-size: 18px;
-  }
-}
-@media (min-width: 992px) {
-  .hero .title h1 {
-    font-size: 50px;
-  }
-  .hero .title h4 {
-    font-size: 20px;
-  }
-}
-@media (min-width: 1200px) {
-  .hero .title h1 {
-    font-size: 60px;
-  }
-  .hero .title h4 {
-    font-size: 22px;
-  }
-}
-@media (min-width: 1400px) {
-  .hero .title h1 {
-    font-size: 74px;
-  }
-  .hero .title h4 {
-    font-size: 24px;
-  }
-}
-.hero .screenshot {
-  padding: 0;
-  max-width: 75%;
-  height: auto;
-}
-.hero .download-button-scene {
-  --point: hsl(10, 90%, 70%);
-  --spectrum: var(--point), var(--point);
-  --blur: 12;
-  --brightness: 1.25;
-  --border: 2;
-  --border-radius: 32px;
-  --speed: 4;
-  --line: hsl(0, 0%, 98% / 0.15);
-  --transition: 0.25s;
-  --intent: 0;
-  margin: 64px 0px 64px 0px;
-  transform-style: preserve-3d;
-  transition: transform 1s 3s;
-  animation: hero-download-button-spin calc(var(--speed) * 1s) infinite linear running;
-}
-.hero .download-button-scene::before {
-  content: "Blurred Pseudo";
-  position: absolute;
-  right: calc(100% + 4rem);
-  white-space: nowrap;
-  top: 0%;
-  font-weight: 200;
-  opacity: 0;
-  transition: opacity 0.25s 0.5s;
-}
-.hero .download-button-scene::after {
-  content: "";
-  height: calc(50% + var(--border) * 1px);
-  width: calc(100% + var(--border) * 2px);
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  translate: -50% 0;
-  z-index: -1;
-  opacity: 0;
-  background: conic-gradient(from var(--hero-download-button-angle, 0deg) in hsl longer hue, var(--spectrum)) 50% 100%/200% 200% border-box;
-  border-radius: 50% 50% var(--border-radius) var(--border-radius)/20px 20px var(--border-radius) var(--border-radius);
-  filter: blur(calc(var(--blur) * 1px)) brightness(calc(var(--brightness)));
-  scale: calc(0.5 + var(--intent, 0) * 0.46 - var(--active, 0));
-  transition: transform 1s 1s, opacity 0.25s 1s;
-}
-.hero .download-button-scene button {
-  padding: 12px 16px;
-  border-radius: var(--border-radius);
-  border: calc(var(--border) * 1px) solid transparent;
-  background: linear-gradient(#813dc2, #813dc2) padding-box, linear-gradient(#813dc2 40%, transparent 60%) border-box, conic-gradient(from var(--hero-download-button-angle, 0deg) in hsl longer hue, var(--spectrum)) 50% 50%/200% 200% border-box;
-  position: relative;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 16px;
-  text-decoration: none;
-  transition: color 0.15s ease-in-out, background 0.15s ease-in-out;
-}
-.hero .download-button-scene button::before {
-  content: "";
-  height: calc(50% + var(--border) * 1px);
-  width: calc(100% + var(--border) * 2px);
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  translate: -50% 0;
-  z-index: -1;
-  background: conic-gradient(from var(--hero-download-button-angle, 0deg) in hsl longer hue, var(--spectrum)) 50% 100%/200% 200% border-box;
-  border-radius: 50% 50% var(--border-radius) var(--border-radius)/20px 20px var(--border-radius) var(--border-radius);
-  filter: blur(calc(var(--blur) * 1px)) brightness(calc(var(--brightness)));
-  scale: calc(0.5 + var(--intent, 0) * 0.46 - var(--active, 0));
-  transition: scale var(--transition);
-}
-.hero .download-button-scene button::after {
-  content: "";
-  position: absolute;
-  inset: calc(var(--border) * -1px);
-  pointer-events: none;
-  border: calc(var(--border) * 1px) solid transparent;
-  border-radius: var(--border-radius);
-  opacity: calc(1 - var(--intent, 0));
-  transition: opacity var(--transition);
-}
-.hero .download-button-scene button:is(:hover, :focus-visible) {
-  --intent: 1;
-  outline: none;
-  color: #fff;
-  background: linear-gradient(#a875d7, #a875d7) padding-box, linear-gradient(#a875d7 40%, transparent 60%) border-box, conic-gradient(from var(--hero-download-button-angle, 0deg) in hsl longer hue, var(--spectrum)) 50% 50%/200% 200% border-box;
-}
-.hero .download-button-scene button:is(:hover, :focus-visible) i {
-  margin-left: 12px;
-  margin-right: 4px;
-}
-.hero .download-button-scene button:is(:hover, :focus-visible) i.bi {
-  color: inherit !important;
-}
-.hero .download-button-scene button:active {
-  --active: 1;
-}
-.hero .download-button-scene button span {
-  margin-left: 8px;
-}
-.hero .download-button-scene button i {
-  font-size: inherit;
-  margin-left: 8px;
-  margin-right: 8px;
-  transition: all 0.25s ease-in-out;
-}
-.hero .download-button-scene button i.bi {
-  color: inherit !important;
-}
+  overflow: hidden; }
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 2000%;
+    height: 2000%;
+    top: -1000%;
+    left: -1000%;
+    z-index: -1;
+    background: url("images/hero-tile.png") repeat 0 0;
+    background-color: rgba(91, 42, 134, 0.95);
+    overflow: hidden;
+    transform: rotateX(15deg) rotateZ(-15deg) skewX(15deg);
+    transform-style: preserve-3d;
+    -webkit-animation: hero-bg-scrolling 20s infinite;
+    animation: hero-bg-scrolling 20s infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear; }
+  .hero .title {
+    vertical-align: top;
+    color: unset;
+    background: linear-gradient(to right bottom, white 30%, rgba(255, 255, 255, 0.3)) text;
+    -webkit-box-decoration-break: clone;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    text-decoration: inherit;
+    text-wrap: balance; }
+    .hero .title h1 {
+      max-width: 75%;
+      margin-bottom: 8px;
+      font-family: var(--font-family-display);
+      font-size: 36px; }
+    .hero .title h4 {
+      max-width: 50%;
+      text-wrap: pretty;
+      font-size: 16px; }
+    @media (min-width: 576px) {
+      .hero .title h1 {
+        font-size: 40px; } }
+    @media (min-width: 768px) {
+      .hero .title h1 {
+        font-size: 48px; }
+      .hero .title h4 {
+        font-size: 18px; } }
+    @media (min-width: 992px) {
+      .hero .title h1 {
+        font-size: 50px; }
+      .hero .title h4 {
+        font-size: 20px; } }
+    @media (min-width: 1200px) {
+      .hero .title h1 {
+        font-size: 60px; }
+      .hero .title h4 {
+        font-size: 22px; } }
+    @media (min-width: 1400px) {
+      .hero .title h1 {
+        font-size: 74px; }
+      .hero .title h4 {
+        font-size: 24px; } }
+  .hero .screenshot {
+    padding: 0;
+    max-width: 75%;
+    height: auto; }
+  .hero .download-button-scene {
+    --point: #f7856e;
+    --spectrum: var(--point), var(--point);
+    --blur: 12;
+    --brightness: 1.25;
+    --border: 2;
+    --border-radius: 32px;
+    --speed: 4;
+    --line: white;
+    --transition: 0.25s;
+    --intent: 0;
+    margin: 64px 0px 64px 0px;
+    transform-style: preserve-3d;
+    transition: transform 1s 3s;
+    animation: hero-download-button-spin calc(var(--speed) * 1s) infinite linear running; }
+    .hero .download-button-scene::before {
+      content: "Blurred Pseudo";
+      position: absolute;
+      right: calc(100% + 4rem);
+      white-space: nowrap;
+      top: 0%;
+      font-weight: 200;
+      opacity: 0;
+      transition: opacity 0.25s 0.5s; }
+    .hero .download-button-scene::after {
+      content: "";
+      height: calc(50% + (var(--border) * 1px));
+      width: calc(100% + (var(--border) * 2px));
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      translate: -50% 0;
+      z-index: -1;
+      opacity: 0;
+      background: conic-gradient(from var(--hero-download-button-angle, 0deg) in hsl longer hue, var(--spectrum)) 50% 100%/200% 200% border-box;
+      border-radius: 50% 50% var(--border-radius) var(--border-radius)/20px 20px var(--border-radius) var(--border-radius);
+      filter: blur(calc(var(--blur) * 1px)) brightness(calc(var(--brightness)));
+      scale: calc((0.5 + (var(--intent, 0) * 0.46)) - var(--active, 0));
+      transition: transform 1s 1s, opacity 0.25s 1s; }
+    .hero .download-button-scene button {
+      padding: 12px 16px;
+      border-radius: var(--border-radius);
+      border: calc(var(--border) * 1px) solid transparent;
+      background: linear-gradient(#813dc2, #813dc2) padding-box, linear-gradient(#813dc2 40%, transparent 60%) border-box, conic-gradient(from var(--hero-download-button-angle, 0deg) in hsl longer hue, var(--spectrum)) 50% 50%/200% 200% border-box;
+      position: relative;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 16px;
+      text-decoration: none;
+      transition: color .15s ease-in-out, background .15s ease-in-out; }
+      .hero .download-button-scene button::before {
+        content: "";
+        height: calc(50% + (var(--border) * 1px));
+        width: calc(100% + (var(--border) * 2px));
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        translate: -50% 0;
+        z-index: -1;
+        background: conic-gradient(from var(--hero-download-button-angle, 0deg) in hsl longer hue, var(--spectrum)) 50% 100%/200% 200% border-box;
+        border-radius: 50% 50% var(--border-radius) var(--border-radius)/20px 20px var(--border-radius) var(--border-radius);
+        filter: blur(calc(var(--blur) * 1px)) brightness(calc(var(--brightness)));
+        scale: calc((0.5 + (var(--intent, 0) * 0.46)) - var(--active, 0));
+        transition: scale var(--transition); }
+      .hero .download-button-scene button::after {
+        content: "";
+        position: absolute;
+        inset: calc(var(--border) * -1px);
+        pointer-events: none;
+        border: calc(var(--border) * 1px) solid transparent;
+        border-radius: var(--border-radius);
+        opacity: calc(1 - var(--intent, 0));
+        transition: opacity var(--transition); }
+      .hero .download-button-scene button:is(:hover, :focus-visible) {
+        --intent: 1;
+        outline: none;
+        color: #fff;
+        background: linear-gradient(#a875d7, #a875d7) padding-box, linear-gradient(#a875d7 40%, transparent 60%) border-box, conic-gradient(from var(--hero-download-button-angle, 0deg) in hsl longer hue, var(--spectrum)) 50% 50%/200% 200% border-box; }
+        .hero .download-button-scene button:is(:hover, :focus-visible) i {
+          margin-left: 12px;
+          margin-right: 4px; }
+          .hero .download-button-scene button:is(:hover, :focus-visible) i.bi {
+            color: inherit !important; }
+      .hero .download-button-scene button:active {
+        --active: 1; }
+      .hero .download-button-scene button span {
+        margin-left: 8px; }
+      .hero .download-button-scene button i {
+        font-size: inherit;
+        margin-left: 8px;
+        margin-right: 8px;
+        transition: all .25s ease-in-out; }
+        .hero .download-button-scene button i.bi {
+          color: inherit !important; }
