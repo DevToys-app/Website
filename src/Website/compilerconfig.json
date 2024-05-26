@@ -1,0 +1,34 @@
+﻿[
+  {
+    "outputFile": "wwwroot/css/app.css",
+    "inputFile": "wwwroot/css/app.scss"
+  },
+  {
+    "outputFile": "Components/Pages/Home.razor.css",
+    "inputFile": "Components/Pages/Home.razor.scss"
+  },
+  {
+    "outputFile": "Components/Layout/Header.razor.css",
+    "inputFile": "Components/Layout/Header.razor.scss"
+  },
+  {
+    "outputFile": "Components/Controls/Waves.razor.css",
+    "inputFile": "Components/Controls/Waves.razor.scss"
+  },
+  {
+    "outputFile": "Components/Layout/Footer.razor.css",
+    "inputFile": "Components/Layout/Footer.razor.scss"
+  },
+  {
+    "outputFile": "Components/Pages/Post.razor.css",
+    "inputFile": "Components/Pages/Post.razor.scss"
+  },
+  {
+    "outputFile": "Components/Pages/Blog.razor.css",
+    "inputFile": "Components/Pages/Blog.razor.scss"
+  },
+  {
+    "outputFile": "Components/Pages/Download.razor.css",
+    "inputFile": "Components/Pages/Download.razor.scss"
+  }
+]

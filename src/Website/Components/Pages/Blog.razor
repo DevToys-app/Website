@@ -1,0 +1,40 @@
+﻿@page "/blog"
+@using Website.Helpers
+@using Website.Models
+
+<PageTitle>DevToys - Blog</PageTitle>
+
+<section>
+    <div class="container">
+        <div class="top-space"></div>
+        <h1 class="page-title">News, developer story and more...</h1>
+        <ul class="mb-5">
+            @foreach (BlogPost post in BlogHelper.BlogPosts)
+            {
+                <li class="mb-3">
+                    <a href="@($"/blog/{post.Url}")">
+                        <div class="card">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12 col-lg-9 ps-4">
+                                        <h4>@post.Title</h4>
+                                        <p>@post.Description</p>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mb-3 mb-lg-0 ps-4 details">
+                                        <p>@post.Category</p>
+                                        <p>
+                                            <time datetime="@post.Date.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")"
+                                                  class="order-first flex items-center text-base text-zinc-400 dark:text-zinc-500">
+                                                <span>@post.Date.ToLongDateString()</span>
+                                            </time>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+</section>

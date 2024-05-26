@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bootstrap-icons/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="aos/aos.css" />
+    <link rel="stylesheet" href="css/app.min.css" />
+    <link rel="stylesheet" href="Website.styles.css" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+
+    <HeadOutlet />
+</head>
+
+<body>
+    <Routes />
+    <script src="_framework/blazor.web.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="aos/aos.js"></script>
+    <script>
+        AOS.init();
+        let scrollRef = 0;
+        window.addEventListener('scroll', function () {
+            // increase value up to 10, then refresh AOS
+            if (scrollRef <= 10) {
+                scrollRef++;
+            } else {
+                AOS.refresh();
+            }
+        });
+
+        window.addEventListener('resize', function () {
+            // increase value up to 10, then refresh AOS
+            if (scrollRef <= 10) {
+                scrollRef++;
+            } else {
+                AOS.refresh();
+            }
+        });
+    </script>
+</body>
+
+</html>

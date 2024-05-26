@@ -1,0 +1,150 @@
+﻿@page "/"
+@using Website.Components.Controls
+
+<PageTitle>DevToys - A Swiss Army knife for developers</PageTitle>
+
+<section class="hero transparent">
+    <div class="container">
+        <div class="top-space"></div>
+        <div class="row justify-content-center text-center title" data-aos="fade-down" data-aos-delay="150" data-aos-duration="1500">
+            <h1>Swiss Army knife for developers</h1>
+            <h4>A desktop app that helps developers in daily tasks</h4>
+        </div>
+        <div class="row justify-content-center text-center" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="1500">
+            <!-- Credit to https://jhey.dev/ for the effect -->
+            <div class="download-button-scene">
+                <div class="button-wrap">
+                    <NavLink href="/download">
+                        <button><span>Get DevToys 2.0</span><i class="bi bi-chevron-right"></i></button>
+                    </NavLink>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1500">
+            <img src="images/hero-screenshot.png" class="screenshot" alt="Screenshot of DevToys">
+        </div>
+    </div>
+
+    <Waves />
+</section>
+
+<section>
+    <div class="container pt-5 pb-5">
+        <div class="row content justify-content-between">
+            <div class="col-lg-6 col-xxl-6 pt-5 pb-5 order-1 order-lg-0" data-aos="fade-right">
+                <img src="images/screenshot-1.png" class="img-fluid screenshot" alt="Screenshot of DevToys">
+            </div>
+            <div class="col-lg-5 col-xxl-5 pt-4 pt-lg-0 d-lg-flex align-items-center" data-aos="fade-up">
+                <div>
+                    <h3>Open source and cross-platform</h3>
+                    <p class="fst-italic">
+                        DevToys is <strong>free</strong>, <strong>open source</strong> and is <strong>privacy-focused</strong> on <strong>Windows</strong>, <strong>macOS</strong> and <strong>Linux</strong>!
+                        No need to use many untruthful websites to do simple tasks with your data.
+                    </p>
+                    <p>
+                        It comes with a set of 30 default offline tools, including:
+                    </p>
+                    <ul>
+                        <li><i class="bi bi-check"></i> Json to Yaml and Yaml to Json converter</li>
+                        <li><i class="bi bi-check"></i> Base64 Text & Image converter</li>
+                        <li><i class="bi bi-check"></i> JWT encoder and decoder</li>
+                        <li><i class="bi bi-check"></i> Text comparer</li>
+                        <li><i class="bi bi-check"></i> Hash generator</li>
+                    </ul>
+                    <p>
+                        DevToys is <strong>extensible</strong>. More tools are available through the DevToys community, and you can <a href="/doc">build your own</a>!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container pt-5 pb-5">
+        <div class="row content justify-content-between">
+            <div class="col-lg-6 col-xxl-6 pt-5 pt-lg-0 order-1 order-lg-2" data-aos="fade-left">
+                <img src="images/screenshot-2.png" class="img-fluid screenshot" alt="Screenshot of DevToys">
+            </div>
+            <div class="col-lg-5 col-xxl-5 pt-4 pt-lg-0 d-lg-flex align-items-center" data-aos="fade-up">
+                <div>
+                    <h3>Go faster with Smart Detection</h3>
+                    <p class="fst-italic">
+                        DevToys can <strong>automatically detect the best tool</strong> that fits the clipboard content.
+                    </p>
+                    <p>
+                        A lightbulb <i class="bi bi-lightbulb-fill"></i> icon indicates the tool(s) that can be used with the clipboard content. If only one tool is detected, the clipboard content will be automatically pasted in that tool*.
+                    </p>
+                    <p class="fst-italic">
+                        *Smart detection behavior can be customized in the app settings.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container pt-5 pb-5">
+        <div class="row content justify-content-between">
+            <div class="col-lg-6 col-xxl-6 pt-5 pt-lg-0 order-1 order-lg-0 mt-5" data-aos="fade-right">
+                <img src="images/screenshot-3.png" class="img-fluid screenshot" alt="Screenshot of DevToys">
+            </div>
+            <div class="col-lg-5 col-xxl-5 pt-4 pt-lg-0 d-lg-flex align-items-center" data-aos="fade-up">
+                <div>
+                    <h3>Integration with the system</h3>
+                    <p class="fst-italic">
+                        DevToys is made with <i class="bi bi-heart-fill"></i>and designed with to embrace its operating system.
+                    </p>
+                    <ul>
+                        <li><i class="bi bi-check"></i> Compact Overlay aka. Picture-in-Picture mode</li>
+                        <li><i class="bi bi-check"></i> Task Bar's jump list</li>
+                        <li><i class="bi bi-check"></i> Search bar</li>
+                        <li><i class="bi bi-check"></i> Rich code editor</li>
+                        <li><i class="bi bi-check"></i> Multiple instances</li>
+                        <li><i class="bi bi-check"></i> Dark / Light theme</li>
+                        <li><i class="bi bi-check"></i> Modern and responsive UI</li>
+                        <li><i class="bi bi-check"></i> Extensible (see our <a href="/doc">SDK and documentation</a>)</li>
+                    </ul>
+                    <p class="fst-italic">
+                        Made with <i class="bi bi-heart-fill"></i>by <a href="https://www.linkedin.com/in/etiennebaudoux/" target="_blank">Etienne Baudoux</a> and <a href="https://www.linkedin.com/in/benjamin-titeux/" target="_blank">Benjamin Titeux</a>, from Seattle, WA and Paris, France.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container pt-5 pb-5">
+        <div class="row content justify-content-between">
+            <div class="col-lg-6 col-xxl-6 pt-5 pt-lg-0 order-1 order-lg-2" data-aos="fade-left">
+                <img src="images/screenshot-4.png" class="img-fluid screenshot" alt="Screenshot of DevToys">
+            </div>
+            <div class="col-lg-5 col-xxl-5 pt-4 pt-lg-0 d-lg-flex align-items-center" data-aos="fade-up">
+                <div>
+                    <h3>Use it from the Terminal</h3>
+                    <p class="fst-italic">
+                        DevToys can used from a command line prompt, making it possible to use in new scenarios such as <strong>Continuous Integration</strong>.
+                    </p>
+                    <p>
+                        Most tools that make sense to be used as command prompt are available in <strong>DevToys CLI</strong>. DevToys CLI is a separated app than the one with a GUI. Both are extensible.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container pt-5 mb-5">
+
+        <div data-aos="fade">
+            <h3>Please support us!</h3>
+            <p>
+                If you like DevToys, feel free to <a href="https://twitter.com/intent/tweet?text=Check%20out%20%23DevToys%2C%20a%20Swiss%20Army%20knife%20for%20%23developers%21&url=https%3A%2F%2Fdevtoys.app" target="_blank">Tweet</a> about it, <a href="ms-windows-store://review/?ProductId=9pgcv4v3bk4w">rate</a> it, <a href="https://github.com/DevToys-app/DevToys/blob/main/CONTRIBUTING.md#internationalization-and-localization" target="_blank">translate</a> it, <a href="https://github.com/DevToys-app/DevToys/blob/main/CONTRIBUTING.md" target="_blank">contribute</a> to it or <a href="https://github.com/DevToys-app/DevToys/issues/new/choose" target="_blank">share your feedback</a>.
+            </p>
+        </div>
+
+    </div>
+</section>

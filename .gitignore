@@ -396,3 +396,9 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Built documentation website
+src/Website/wwwroot/doc
+
+# Generated blog posts
+src/Website/blog/_generated

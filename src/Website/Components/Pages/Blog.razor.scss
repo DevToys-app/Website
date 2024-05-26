@@ -1,0 +1,34 @@
+ul {
+    padding-left: 0px;
+
+    li {
+        list-style-type: none;
+
+        a, a * {
+            color: rgba(255, 255, 255, 0.55) !important;
+            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+
+            &:hover, &:hover * {
+                color: rgba(255, 255, 255, 0.75) !important;
+
+                h4 {
+                    color: rgba(255, 255, 255, 1) !important;
+                }
+            }
+
+            h4 {
+                color: rgba(255, 255, 255, 1) !important;
+                margin-top: 1rem;
+            }
+
+            .details {
+                min-width: 200px;
+                align-content: center;
+
+                p {
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+}
