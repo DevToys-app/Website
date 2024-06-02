@@ -3,6 +3,11 @@
 @using Website.Models
 
 <PageTitle>DevToys - @BlogPost?.Title</PageTitle>
+<HeadContent>
+    <meta property="og:title" content="DevToys - @BlogPost?.Title">
+    <meta property="og:description" content="@BlogPost?.Description">
+    <meta name="description" content="@BlogPost?.Description" />
+</HeadContent>
 
 <section>
     <div class="container">
