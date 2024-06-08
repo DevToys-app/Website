@@ -71,7 +71,10 @@ namespace Website.Helpers
         {
             try
             {
-                var latestRelease = await githubClient.Repository.Release.GetLatest(GitHubOrganization, GitHubRepositoryName);
+                // TODO: This will only work for stable release, not preview releases.
+                //var latestRelease = await githubClient.Repository.Release.GetLatest(GitHubOrganization, GitHubRepositoryName);
+
+                var latestRelease = (await githubClient.Repository.Release.GetAll(GitHubOrganization, GitHubRepositoryName)).First();
 
                 var assets = await githubClient.Repository.Release.GetAllAssets(GitHubOrganization, GitHubRepositoryName, latestRelease.Id);
 
