@@ -29,9 +29,9 @@ namespace Website.Helpers
         private const string FileName_Windows_CLI_Zip_Lightweight_X86 = "devtoys.cli_win_x86_portable.zip";
 
         private const string FileName_Debian_GUI_Deb_ARM64 = "devtoys_linux_arm.deb";
-        private const string FileName_Debian_GUI_Zip_ARM64 = "devtoys.cli_linux_arm_portable.zip";
+        private const string FileName_Debian_GUI_Zip_ARM64 = "devtoys_linux_arm_portable.zip";
         private const string FileName_Debian_GUI_Deb_X64 = "devtoys_linux_x64.deb";
-        private const string FileName_Debian_GUI_Zip_X64 = "devtoys.cli_linux_x64_portable.zip";
+        private const string FileName_Debian_GUI_Zip_X64 = "devtoys_linux_x64_portable.zip";
 
         private const string FileName_MacOS_GUI_AppBundle_ARM64 = "devtoys_osx_arm64.zip";
         private const string FileName_MacOS_GUI_AppBundle_X64 = "devtoys_osx_x64.zip";
