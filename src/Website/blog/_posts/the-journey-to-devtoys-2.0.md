@@ -62,8 +62,8 @@ At the time we evaluated Uno Platform as an option, on macOS, by default, Uno Pl
 On Linux, at the time of our evaluation, Uno Platform rendered the UI using [Skia](https://skia.org/) and [GTK](https://www.gtk.org/), once again emulating Fluent UI by default. In this case again, Uno Platform 5.2 has updated their default options since our initial evaluation, removing GTK dependency and using `X11/Skia` instead. We did not evaluate this new option as we had already moved on to another solution that we describe later in this article.
 
 Our exploration of Uno Platform in early 2023 quickly led us to several obstacles:
-1. Mac Catalyst apps on macOS have a significant issue with keyboard input and the `WKWebView` (the Safari web view, which we use for Monaco Editor). In short, keyboard input is not recognized, posing a major issue when using a web view to power a text editor. The issue does not reproduce on iPad, but this platform is not our target. This issue isn't limited to Uno Platform, [it also impact .NET MAUI](https://github.com/unoplatform/uno/issues/9877#issuecomment-1481593920) and native Mac Catalyst apps running on macOS. At the time of writing this article, it appears that [Apple hasn't yet resolved the problem](https://developer.apple.com/forums/thread/721141).
-1. As an alternative, we considered whether Uno Platform could function for a classic, macOS desktop app using [AppKit](https://developer.apple.com/documentation/appkit). However, according to the Uno Platform team, which we thanks for their support, the current state of AppKit support is **_"not production ready"_**. We don't blame the Uno Platform team here: they focus on iOS/iPad instead of macOS because that's what most of their customers need.
+1. Mac Catalyst apps on macOS have a significant issue with keyboard input in the `WKWebView` (the Safari web view, which we use for Monaco Editor). In short, keyboard input is not recognized, posing a major issue when using a web view to power a text editor. The issue does not reproduce on iPad, but this platform is not our target. This issue isn't limited to Uno Platform, [it also impact .NET MAUI](https://github.com/unoplatform/uno/issues/9877#issuecomment-1481593920) and native Mac Catalyst apps running on macOS. At the time of writing this article, it appears that [Apple hasn't yet resolved the problem](https://developer.apple.com/forums/thread/721141).
+1. As an alternative, we considered whether Uno Platform could function for a classic, macOS desktop app using [AppKit](https://developer.apple.com/documentation/appkit). However, according to the Uno Platform team, which we thanks for their support, at the time of our trial, the state of AppKit support was **_"not production ready"_**. We don't blame the Uno Platform team here: they focus on iOS/iPad instead of macOS because that's what most of their customers need.
 1. As a final alternative, we attempted to find a XAML-based control that provides a rich text-editing experience to replace Monaco Editor, but there was nothing satisfactory at the time, and coding it ourselves would have been too time-consuming.
 
 ### .NET MAUI
@@ -80,7 +80,7 @@ However, this styling issue wasn't our main concern. Avalonia simply lacks built
 
 ### WinUI 3 and WebView
 
-DevToys 1.0 was a [UWP](https://learn.microsoft.com/en-us/windows/uwp/get-started/universal-application-platform-guide) app. While the programming language used is C# and XAML, the underlying runtime is not .NET, but [WinRT](https://en.wikipedia.org/wiki/Windows_Runtime). This can be seen as a Mac Catalyst equivalent but for Windows and Xbox (and the regretted Windows Phone). We couldn't use UWP for DevToys 2.0 as it doesn't allow us to run code dynamically in C#, a feature that .NET does provide.
+DevToys 1.0 was a [UWP](https://learn.microsoft.com/en-us/windows/uwp/get-started/universal-application-platform-guide) app. While the programming language used is C# and XAML, the underlying runtime is not .NET, but [WinRT](https://en.wikipedia.org/wiki/Windows_Runtime). This can be seen as a Mac Catalyst equivalent but for Windows and Xbox (and the regretted Windows Phone). We couldn't use UWP for DevToys 2.0 as it doesn't allow us to run code dynamically in C#, meaning we couldn't make the app as extensible as we wished.
 
 The alternative was to use [WinUI 3 (WinApp SDK)](https://learn.microsoft.com/en-us/windows/apps/winui/winui3/), which is more recent, comes with Fluent UI by default, and can be used in .NET. Unfortunately, we quickly encountered an issue in WinUI 3 that we didn't have in UWP: the web view does not support transparency. Here's why this was a problem for us:
 1. Windows 11 introduced a new feature called [Mica](https://learn.microsoft.com/en-us/windows/apps/design/style/mica), a design material that renders the user's wallpaper in the app as a highly blurred texture. DevToys 1.0 uses this feature to make the app look more integrated with the system. To let this material render, the app's UI elements have to be semi-transparent. This means the WebView should also support a transparent background. This is supported in UWP, and even WPF, but [it is unfortunately not supported in WinUI 3](https://github.com/microsoft/microsoft-ui-xaml/issues/2992#issuecomment-670069746).
@@ -120,7 +120,7 @@ In DevToys 1.0, every time a user switched from one tool to another that require
 
 ![Memory consumption difference between DevToys 1.0 and 2.0](blog/the-journey-to-devtoys-2.0/memory-consumption.png)
 
-Of course, there are other ways to reduce memory consumption in DevToys as a native app, such as re-using the web view instances instead of creating a new one every time the user navigates from a tool to another, but this is one is by far the most efficient.
+Of course, there are other ways to reduce memory consumption in DevToys as a native app, such as re-using the web view instances instead of creating a new one every time the user navigates from a tool to another, but this one is by far the most efficient.
 
 ## Developing DevToys as a Blazor Hybrid app
 
@@ -130,33 +130,33 @@ In our transition to a web-based user interface, we aimed to maintain a UI that 
 
 We initiated our work by reusing the CSS from [Fluent Svelte](https://fluent-svelte.vercel.app/), to replicate the Fluent UI as closely as possible. We then customized it to make it look like Aqua on macOS and Yaru on Linux. Although the UI on macOS and Linux may not appear as native as on Windows, we believe it's a reasonable compromise considering our primary user base is currently on Windows, and of course, we can iterate on the look and feel for macOS and Linux.
 
-As of the DevToys developer, I ([Etienne Baudoux](https://www.linkedin.com/in/etiennebaudoux/)) have been away from CSS, TypeScript, and Blazor for quite some time. It felt like starting from scratch, and it took a few weeks to feel comfortable with it.
+As one of the DevToys developer, I ([Etienne Baudoux](https://www.linkedin.com/in/etiennebaudoux/)) have been away from CSS, TypeScript, and Blazor for quite some time. It felt like starting from scratch, and it took a few weeks to feel comfortable with it.
 
 ### On Windows
 
 As previously mentioned, we encountered an issue with WinUI 3 where the web view does not support transparency. This was a significant hurdle for us, as we wanted to retain the Mica effect in DevToys. With Blazor Hybrid, we would have faced the same issue as long as we used WinUI 3.
 
-Using UWP was not an option as it doesn't allow us to run code dynamically in C#, a feature that .NET provides, meaning that we would not be able to make DevToys support extensions.
+Using UWP was not an option as it doesn't allow us to run code dynamically in C#, meaning that we would not be able to make DevToys support extensions.
 
 As a consequence, we opted to use Blazor Hybrid with a trusty old [.NET WPF](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/overview/?view=netdesktop-8.0) host. This approach, coupled with a bit of Win32 interop, allowed us to apply the Mica effect using the Edge WebView, which supports transparency in WPF.
-A [BlazorWebView](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.webview.wpf.blazorwebview?view=net-maui-8.0), a control that hosts a Blazor web app inside a native app, is available in WPF, which is handy for us.
+To use "Blazor Hybrid", we need a [BlazorWebView](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.webview.wpf.blazorwebview?view=net-maui-8.0). In short, it is a UI element that provides a Web View that hosts a locally-running Blazor web app inside. It is available in WPF through a Microsoft-made library, which is handy for us.
 
 ### On macOS
 
 We also mentioned earlier that on macOS specifically, Mac Catalyst apps have a significant issue with the keyboard and the WKWebView. We could have used Blazor Hybrid with a Mac Catalyst host, but we would have encountered the same problem.
 
-Our alternative was to use, similar to the equivalent on Windows, a reliable [AppKit](https://developer.apple.com/documentation/appkit) host.
-Like in WPF, .NET MAUI offers a BlazorWebView control that can be used in a Mac Catalyst app. Since .NET MAUI is open-source and under a permissive license (MIT), we were able to fork the [BlazorWebView control from .NET MAUI](https://github.com/dotnet/maui/blob/2e308dce7b707d57c1b0624c7a41d95c7b049c78/src/BlazorWebView/src/Maui/iOS/BlazorWebViewHandler.iOS.cs), which is relying on UIKit, and adapt it to AppKit.
+Our alternative was to use, similar to the equivalent on Windows, a trusty old [AppKit](https://developer.apple.com/documentation/appkit) host.
+Like in WPF, .NET MAUI offers a BlazorWebView control that can be used in a Mac Catalyst app. Since .NET MAUI is open-source and under a permissive license (MIT), we were able to fork the [BlazorWebView control from .NET MAUI](https://github.com/dotnet/maui/blob/2e308dce7b707d57c1b0624c7a41d95c7b049c78/src/BlazorWebView/src/Maui/iOS/BlazorWebViewHandler.iOS.cs), which is relying on UIKit, and adapt it to AppKit. At our surprise, it was pretty straightforward to do so. We only had to replace the UIKit components with their AppKit equivalent, and it worked like a charm.
 
-A significant advantage of using AppKit over UIKit, which we discovered later in the development cycle, is the ability to use the [vibrancy effect](https://developer.apple.com/documentation/appkit/nsvisualeffectview#1674173). This gives DevToys a slightly more native-looking visual on macOS, thanks to the behind-window blending. It appears that Mac Catalyst apps don't support this feature.
+A significant advantage of using AppKit over UIKit, which we discovered later in the development cycle, is the ability to use the [vibrancy effect](https://developer.apple.com/documentation/appkit/nsvisualeffectview#1674173). This gives DevToys a slightly more native-looking visual on macOS, thanks to the behind-window blending. It appears that Mac Catalyst apps don't support this feature on macOS.
 
 ### On Linux
 
-On Linux, we used a [GTK](https://www.gtk.org/) host. We used the [gir.core](https://github.com/gircore/gir.core) as a GTK wrapper, primarily because it was the quickest one for us to get started with. We had no choice but to also fork the BlazorWebView control from .NET MAUI and adapt it to GTK. Although it was less straightforward than on macOS, we managed to make it work.
+On Linux, we used a [GTK](https://www.gtk.org/) host. We used the [gir.core](https://github.com/gircore/gir.core) as a GTK wrapper, primarily because it was the quickest one for us to get started with. We had no choice but to also fork the BlazorWebView control from .NET MAUI and adapt it to GTK. Although it was less straightforward than on macOS, we managed to make it work within 2 days.
 
 ### Enabling extensibility
 
-An important aspect of making an app extensible in .NET is to be able to load assemblies (`.dll` files for those unfamiliar with the term) dynamically. This means that the entry points of extensions should be discovered at runtime and can vary between app launches. Luckily, the [Managed Extensibility Framework (MEF)](https://docs.microsoft.com/en-us/dotnet/framework/mef/). is a .NET framework specifically designed to cater to this need. We chose to incorporate it into DevToys 2.0.
+An important aspect of making an app extensible in .NET is to be able to load assemblies dynamically (`.dll` files for those unfamiliar with the term). This means that the entry points of extensions should be discovered at runtime and can vary between app launches. Luckily, the [Managed Extensibility Framework (MEF)](https://docs.microsoft.com/en-us/dotnet/framework/mef/). is a .NET framework specifically designed to cater to this need. We chose to incorporate it into DevToys 2.0.
 
 MEF offers the following pros and cons:
 - **Pros**:
@@ -176,22 +176,24 @@ After a long journey, we finally released DevToys 2.0 on Windows, macOS, and Lin
 Ultimately, our solution with Blazor Hybrid presents the following pros and cons:
 
 - **Pros**:
-  - Using CSS, we can imitate the Fluent UI on Windows, the UIKit on macOS and the Debian on Linux. As a result, DevToys appears and feels native on all platforms. We received feedback that, on Windows, it initially doesn't seem like the app is running in a web view.
+  - Using CSS, we can imitate Fluent UI on Windows, Aqua on macOS and Yaru on Linux. As a result, DevToys appears and feels native on all platforms. We received feedback that, on Windows, it initially doesn't seem like the app is running in a web view.
   - The long-term memory consumption is lower than in DevToys 1.0, as there's only a single instance of the web view loaded.
-  - We can leverage the operating system's installed web view, which makes the app more lightweight.
+  - We can leverage the operating system's installed web view, which makes the app more lightweight than using Electron.
   - We can run C# code natively on the operating system, which allows us to take advantage of the system's features, such as the Taskbar's Jump List on Windows, or the app bar on macOS.
 - **Cons**:
   - Maintaining the CSS to match the native look and feel of each platform will be time-consuming when platform's design language evolve.
-  - The app starts slower than DevToys 1.0 because the web view has to be loaded at startup, and numerous assemblies are discovered at runtime.
+  - The app starts slower than DevToys 1.0 in part (but not only) because the web view has to be loaded at startup.
   - We had to create a set of custom web components to ensure the UI looks good on every platform, which was quite time-consuming.
-  - We now have to maintain our own implementation of the BlazorWebView on macOS and Linux, until we find potential alternative such as .
+  - We now have to maintain our own implementation of the BlazorWebView on macOS and Linux, until we find potential alternative.
 
 ### Our recommendation for other .NET developers out there
 
-Our reliance on the Monaco Editor and an extensibility model is somewhat unique, and likely doesn't mirror the needs of most developers. Consequently, while our journey may be intriguing, it should not be viewed as a definitive guide on crafting a cross-platform app with .NET.
+Our reliance on the Monaco Editor and an extensibility model is somewhat unique, and likely doesn't mirror the needs of most developers. Consequently, while our journey may be intriguing, it should not be viewed as a definitive guide on crafting a cross-platform desktop app with .NET.
 
 Here are our recommendations based on our experience:
 - For .NET developers creating a mobile app, consider using [.NET MAUI](https://dotnet.microsoft.com/en-us/apps/maui) or [Uno Platform](https://platform.uno/).
   - If your app necessitates frequent display of a web-based UI, opt for [.NET MAUI Blazor Hybrid](https://learn.microsoft.com/en-us/aspnet/core/blazor/hybrid/tutorials/maui?view=aspnetcore-8.0).
-- For .NET developers creating a cross-platform desktop app without our constraints, consider using [Avalonia](https://avaloniaui.net/) or [Uno Platform](https://platform.uno/).
+- For .NET developers creating a cross-platform desktop app without our constraints, consider using [Uno Platform](https://platform.uno/) or [Avalonia](https://avaloniaui.net/).
   - If you encounter constraints similar to ours, you now know that Blazor Hybrid can be a viable solution, and you can [use our code to achieve it](https://github.com/DevToys-app/DevToys).
+
+Thank you for using DevToys! We hope you enjoy the new version as much as we enjoyed creating it.
