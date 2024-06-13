@@ -16,6 +16,11 @@ namespace Website
             // Register IHttpContextAccessor as a service
             builder.Services.AddHttpContextAccessor();
 
+            // Configure logging.
+            builder.Logging.ClearProviders();
+            builder.Logging.AddConsole();
+            builder.Logging.AddAzureWebAppDiagnostics();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

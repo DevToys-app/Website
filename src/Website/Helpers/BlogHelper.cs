@@ -18,6 +18,11 @@ namespace Website.Helpers
         {
             Debug.Assert(!string.IsNullOrEmpty(BlogPostsDirectory));
 
+            if (!Directory.Exists(GeneratedHtmlDirectory))
+            {
+                Directory.CreateDirectory(GeneratedHtmlDirectory);
+            }
+
             const string yamlDelimiter = "---";
             var posts = new List<BlogPost>();
             IDeserializer deserializer

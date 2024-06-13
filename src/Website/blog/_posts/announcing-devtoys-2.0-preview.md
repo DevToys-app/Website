@@ -62,3 +62,7 @@ We'd like to give special thanks to a few standout contributors:
 - **Sou Niyari** @[niyari](https://github.com/niyari), for his valuable feedback and ideas since DevToys 1.0, his coding contributions and early feedback of 2.0.
 - @[Antjac](https://github.com/Antjac) and @[sakana280](https://github.com/sakana280) for adding 2 new tools to DevToys 2.0, using this opportunity to test our extension SDK and provide feedback about it.
 - All our translators for their invaluable help!
+
+![DevToys on Windows](blog/announcing-devtoys-2.0-preview/windows.png)
+![DevToys on macOS](blog/announcing-devtoys-2.0-preview/macos.png)
+![DevToys on Ubuntu](blog/announcing-devtoys-2.0-preview/linux.png)
