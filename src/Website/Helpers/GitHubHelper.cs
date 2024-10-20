@@ -10,23 +10,23 @@ namespace Website.Helpers
         private const string GitHubRepositoryName = "DevToys";
 
         private const string FileName_Debian_CLI_Deb_ARM64 = "devtoys.cli_linux_arm.deb";
-        private const string FileName_Debian_CLI_Zip_ARM64 = "devtoys.cli_linux_arm.zip";
-        private const string FileName_Debian_CLI_Zip_Lightweight_ARM64 = "devtoys.cli_linux_arm_portable.zip";
+        private const string FileName_Debian_CLI_Zip_ARM64 = "devtoys.cli_linux_arm_portable.zip";
+        private const string FileName_Debian_CLI_Zip_Lightweight_ARM64 = "devtoys.cli_linux_arm.zip";
         private const string FileName_Debian_CLI_Deb_X64 = "devtoys.cli_linux_x64.deb";
-        private const string FileName_Debian_CLI_Zip_X64 = "devtoys.cli_linux_x64.zip";
-        private const string FileName_Debian_CLI_Zip_Lightweight_X64 = "devtoys.cli_linux_x64_portable.zip";
+        private const string FileName_Debian_CLI_Zip_X64 = "devtoys.cli_linux_x64_portable.zip";
+        private const string FileName_Debian_CLI_Zip_Lightweight_X64 = "devtoys.cli_linux_x64.zip";
 
-        private const string FileName_MacOS_CLI_Zip_ARM64 = "devtoys.cli_osx_arm64.zip";
-        private const string FileName_MacOS_CLI_Zip_Lightweight_ARM64 = "devtoys.cli_osx_arm64_portable.zip";
-        private const string FileName_MacOS_CLI_Zip_X64 = "devtoys.cli_osx_x64.zip";
-        private const string FileName_MacOS_CLI_Zip_Lightweight_X64 = "devtoys.cli_osx_x64_portable.zip";
+        private const string FileName_MacOS_CLI_Zip_ARM64 = "devtoys.cli_osx_arm64_portable.zip";
+        private const string FileName_MacOS_CLI_Zip_Lightweight_ARM64 = "devtoys.cli_osx_arm64.zip";
+        private const string FileName_MacOS_CLI_Zip_X64 = "devtoys.cli_osx_x64_portable.zip";
+        private const string FileName_MacOS_CLI_Zip_Lightweight_X64 = "devtoys.cli_osx_x64.zip";
 
-        private const string FileName_Windows_CLI_Zip_ARM64 = "devtoys.cli_win_arm64.zip";
-        private const string FileName_Windows_CLI_Zip_Lightweight_ARM64 = "devtoys.cli_win_arm64_portable.zip";
-        private const string FileName_Windows_CLI_Zip_X64 = "devtoys.cli_win_x64.zip";
-        private const string FileName_Windows_CLI_Zip_Lightweight_X64 = "devtoys.cli_win_x64_portable.zip";
-        private const string Filename_Windows_CLI_Zip_X86 = "devtoys.cli_win_x86.zip";
-        private const string FileName_Windows_CLI_Zip_Lightweight_X86 = "devtoys.cli_win_x86_portable.zip";
+        private const string FileName_Windows_CLI_Zip_ARM64 = "devtoys.cli_win_arm64_portable.zip";
+        private const string FileName_Windows_CLI_Zip_Lightweight_ARM64 = "devtoys.cli_win_arm64.zip";
+        private const string FileName_Windows_CLI_Zip_X64 = "devtoys.cli_win_x64_portable.zip";
+        private const string FileName_Windows_CLI_Zip_Lightweight_X64 = "devtoys.cli_win_x64.zip";
+        private const string Filename_Windows_CLI_Zip_X86 = "devtoys.cli_win_x86_portable.zip";
+        private const string FileName_Windows_CLI_Zip_Lightweight_X86 = "devtoys.cli_win_x86.zip";
 
         private const string FileName_Debian_GUI_Deb_ARM64 = "devtoys_linux_arm.deb";
         private const string FileName_Debian_GUI_Zip_ARM64 = "devtoys_linux_arm_portable.zip";
